@@ -1,8 +1,4 @@
-using System.Collections.Generic;
-using ModestTree.Util;
 using UnityEngine;
-using Zenject;
-using System.Linq;
 using ModestTree;
 
 namespace Zenject.SpaceFighter

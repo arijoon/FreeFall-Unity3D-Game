@@ -1,7 +1,3 @@
-using System;
-using UnityEngine;
-using Zenject;
-
 namespace Zenject.SpaceFighter
 {
     public class PlayerHealthWatcher : ITickable

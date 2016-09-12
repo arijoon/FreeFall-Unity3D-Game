@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
-using Zenject;
 
 #pragma warning disable 649
 

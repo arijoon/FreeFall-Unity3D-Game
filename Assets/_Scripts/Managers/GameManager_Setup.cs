@@ -1,8 +1,5 @@
 ﻿using UnityEngine;
-using Zenject;
-using _Scripts.Definitions.ConstantClasses;
 using _Scripts.Definitions.Interfaces;
-using _Scripts.Services;
 
 namespace _Scripts.Managers
 {

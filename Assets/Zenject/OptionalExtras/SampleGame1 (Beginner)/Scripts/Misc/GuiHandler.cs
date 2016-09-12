@@ -1,6 +1,4 @@
 using UnityEngine;
-using System.Collections;
-using Zenject;
 using ModestTree;
 
 #pragma warning disable 649

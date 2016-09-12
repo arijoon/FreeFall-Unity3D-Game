@@ -1,5 +1,3 @@
-using System;
-
 namespace Zenject.Asteroids
 {
     public static class Signals

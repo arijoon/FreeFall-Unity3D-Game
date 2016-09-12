@@ -30,3 +30,4 @@ Library/
 # http://stackoverflow.com/questions/1022111/what-are-monodevelops-pidb-files
 *.pidb
 iOSAssets/Keys/
+Builds/

@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Xml;
 using Assets._Scripts.Extensions;
 using GenericExtensions.Events;
 using GenericExtensions.Factories;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using Zenject;
 using _Scripts.Definitions;
 using _Scripts.Definitions.ConstantClasses;
-using _Scripts.Definitions.CustomEventArgs;
 using _Scripts.Definitions.Interfaces;
 using _Scripts.Services.Interfaces;
 

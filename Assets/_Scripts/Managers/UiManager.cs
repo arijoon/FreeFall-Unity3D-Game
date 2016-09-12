@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Net.Mime;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UI;
 using Zenject;
 using _Scripts.Definitions.ConstantClasses;
 using _Scripts.Definitions.Interfaces;

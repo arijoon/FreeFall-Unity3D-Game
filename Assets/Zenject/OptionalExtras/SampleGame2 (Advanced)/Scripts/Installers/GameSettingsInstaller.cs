@@ -1,8 +1,3 @@
-using System;
-using UnityEngine;
-using System.Collections;
-using Zenject;
-
 namespace Zenject.SpaceFighter
 {
     // We prefer to use ScriptableObjectInstaller for installers that contain game settings
