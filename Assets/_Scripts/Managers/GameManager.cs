@@ -49,7 +49,7 @@ namespace _Scripts.Managers
 
             StartCoroutine(GeneratePlatform());
 
-            _inputAxis.OnMouseClick += (s, a) => _accumulatedWait += PerClickWait;
+            //_inputAxis.OnMouseClick += (s, a) => _accumulatedWait += PerClickWait;
         }
 
         #region event handlers
@@ -70,7 +70,7 @@ namespace _Scripts.Managers
                 float extraWait = _accumulatedWait;
                 _accumulatedWait = 0;
 
-                yield return new WaitForSeconds(GenerationWait + extraWait);
+                yield return new WaitForSeconds(Mathf.Max(GenerationWait + extraWait, .1f));
 
                 yield return new WaitUntil(() =>
                 {

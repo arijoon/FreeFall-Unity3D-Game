@@ -358,6 +358,7 @@
     <Compile Include="Assets\_Scripts\_AppStart\PrefabInstaller.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Textures\texturepackA\shaders\bumpedspecmap.shader" />
     <None Include="Assets\Zenject\LICENSE.txt" />
     <None Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Media\Fonts\Space.txt" />
     <None Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Media\Imported\Shaders\AddSmooth_Layer.shader" />
