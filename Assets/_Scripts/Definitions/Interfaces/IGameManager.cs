@@ -6,11 +6,13 @@ namespace _Scripts.Definitions.Interfaces
     {
         int Score { get; }
 
+        float Health { get; }
+
         bool Pause { get; }
 
         void Reset();
 
-        void LevelFinished();
+        void GameOver();
 
         event EventHandler OnUpdateUi;
         event EventHandler OnLevelFinished;

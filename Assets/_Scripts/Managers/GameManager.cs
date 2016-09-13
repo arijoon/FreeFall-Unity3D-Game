@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Assets._Scripts.Extensions;
+using GenericExtensions;
 using GenericExtensions.Events;
 using GenericExtensions.Factories;
 using UnityEngine;
@@ -9,6 +10,7 @@ using Zenject;
 using _Scripts.Definitions;
 using _Scripts.Definitions.ConstantClasses;
 using _Scripts.Definitions.Interfaces;
+using _Scripts.Definitions.Signals;
 using _Scripts.Services.Interfaces;
 
 namespace _Scripts.Managers
@@ -23,9 +25,13 @@ namespace _Scripts.Managers
         public int Score { get; private set; }
         public bool Pause { get; private set; }
 
+        public float Health { get; private set; }
+
         [Inject] IInputAxis _inputAxis;
         [Inject] PrefabFactory _prefabFactory;
         [Inject] Settings _settings;
+        [Inject] AddScoreSignal _scoreSignal;
+        [Inject] AddScoreSignal.Trigger _scoreTrigger;
 
         [Inject(Id = Tags.Platform)] GameObject[] _platforms;
 
@@ -46,6 +52,8 @@ namespace _Scripts.Managers
             StartCoroutine(GeneratePlatform());
 
             //_inputAxis.OnMouseClick += (s, a) => _accumulatedWait += PerClickWait;
+            _inputAxis.OnReset += OnReset;
+            _scoreSignal.Event += OnAddScore;
         }
 
         #region event handlers
@@ -53,6 +61,12 @@ namespace _Scripts.Managers
         void OnReset(object sender, EventArgs args)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        void OnAddScore(int addition)
+        {
+            Score += addition;
+            UpdateUi();
         }
 
         #endregion
@@ -82,6 +96,8 @@ namespace _Scripts.Managers
 
                 _lastPlatform = _prefabFactory.Create(p, SpawnLocation.position.WithX(randomXSpawn), SpawnLocation.rotation, Tags.Platform);
                 _lastPlatform = _lastPlatform.GetComponentInChildren<Rigidbody>().gameObject;
+
+                _scoreTrigger.Fire(1);
             }
         }
         #endregion
@@ -92,11 +108,10 @@ namespace _Scripts.Managers
             OnReset(this, EventArgs.Empty);
         }
 
-        public void LevelFinished()
+        public void GameOver()
         {
-            throw new NotImplementedException();
+            Reset();
         }
-
 
         public void BackToMainMenu()
         {

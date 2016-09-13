@@ -1,9 +1,12 @@
 ﻿using System;
+using GenericExtensions;
 using UnityEngine;
 using Zenject;
 using Zenject.Asteroids;
+using _Scripts.Behaviours;
 using _Scripts.Definitions.ConstantClasses;
 using _Scripts.Definitions.CustomEventArgs;
+using _Scripts.Definitions.Signals;
 using _Scripts.Services.Interfaces;
 
 namespace _Scripts.Managers
@@ -16,6 +19,7 @@ namespace _Scripts.Managers
         public float MoveSpeed = 10f;
 
         private IInputAxis _inputAxis;
+        private DamageTakenSignal.Trigger _damageTrigger;
         private Rigidbody _rb;
 
         private Vector3 _dragVec;
@@ -23,9 +27,10 @@ namespace _Scripts.Managers
         private bool _shouldDrag;
 
         [Inject]
-        public void Initialize(IInputAxis input)
+        public void Initialize(IInputAxis input, DamageTakenSignal.Trigger damageTrigger)
         {
             _inputAxis = input;
+            _damageTrigger = damageTrigger;
 
             _rb = GetComponent<Rigidbody>();
 
@@ -41,7 +46,8 @@ namespace _Scripts.Managers
 
             foreach (var platform in platforms)
             {
-                Rigidbody rb = platform.GetComponent<Rigidbody>();
+                Rigidbody rb = platform.FindComponent<Rigidbody>();
+
                 rb.AddForce(Vector3.down * ClickForce, ForceMode.Impulse);
             }
         }
@@ -54,17 +60,17 @@ namespace _Scripts.Managers
 
         }
 
+        void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag(Tags.Platform))
+            {
+                _damageTrigger.Fire(other.gameObject.GetDamage());
+            }
+        }
+
         void FixedUpdate()
         {
-            if (_shouldDrag)
-            {
-                _rb.MovePosition(transform.position + _dragVec.normalized * Time.fixedDeltaTime * MoveSpeed);
-            }
-            if (_dragVec.x < 0 && transform.position.x < _startDrag.x - MoveLimit // Left turn
-                || _dragVec.x > 0 && transform.position.x > _startDrag.x + MoveLimit) // Right turn
-            {
-                _shouldDrag = false;
-            }
+            HandleDrag();
         }
 
         void Update()
@@ -80,5 +86,17 @@ namespace _Scripts.Managers
             _rb.velocity = Vector3.zero;
         }
 
+        private void HandleDrag()
+        {
+            if (!_shouldDrag) return;
+
+            _rb.MovePosition(transform.position + _dragVec.normalized * Time.fixedDeltaTime * MoveSpeed);
+
+            if (_dragVec.x < 0 && transform.position.x < _startDrag.x - MoveLimit // Left turn
+                || _dragVec.x > 0 && transform.position.x > _startDrag.x + MoveLimit) // Right turn
+            {
+                _shouldDrag = false;
+            }
+        }
     }
 }
