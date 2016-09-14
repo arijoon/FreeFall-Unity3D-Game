@@ -4,6 +4,7 @@ using UnityEngine;
 using Zenject;
 using Zenject.Asteroids;
 using _Scripts.Behaviours;
+using _Scripts.Definitions;
 using _Scripts.Definitions.ConstantClasses;
 using _Scripts.Definitions.CustomEventArgs;
 using _Scripts.Definitions.Signals;
@@ -15,22 +16,28 @@ namespace _Scripts.Managers
     public class PlayerManager : MonoBehaviour
     {
         public float ClickForce = 20f;
-        public float MoveLimit = 2f;
+        public float MoveLimit = 1f;
         public float MoveSpeed = 10f;
 
         private IInputAxis _inputAxis;
+        private Settings _settings;
         private DamageTakenSignal.Trigger _damageTrigger;
         private Rigidbody _rb;
 
-        private Vector3 _dragVec;
+        private Vector3 _dragDir;
         private Vector3 _startDrag;
+        private Vector3 _targetDrag;
         private bool _shouldDrag;
 
         [Inject]
-        public void Initialize(IInputAxis input, DamageTakenSignal.Trigger damageTrigger)
+        public void Initialize(IInputAxis input,
+            Settings settings,
+            DamageTakenSignal.Trigger damageTrigger)
         {
             _inputAxis = input;
+            _settings = settings;
             _damageTrigger = damageTrigger;
+            _targetDrag = transform.position;
 
             _rb = GetComponent<Rigidbody>();
 
@@ -38,26 +45,28 @@ namespace _Scripts.Managers
             _inputAxis.OnMouseDrag += OnDrag;
         }
 
-        void OnClick(object sender, EventArgs args)
+        void OnClick(object sender, DragEventArgs args)
         {
-            ClearForce();
+            _dragDir = new Vector3(args.DragVector.x - transform.position.x, 0, 0).normalized;
+            _targetDrag += _dragDir * MoveLimit;
 
-            GameObject[] platforms = GameObject.FindGameObjectsWithTag(Tags.Platform);
-
-            foreach (var platform in platforms)
+            if (_targetDrag.x < _settings.Boundary.MinX || _targetDrag.x > _settings.Boundary.MaxX)
             {
-                Rigidbody rb = platform.FindComponent<Rigidbody>();
-
-                rb.AddForce(Vector3.down * ClickForce, ForceMode.Impulse);
+                var newX = Mathf.Clamp(_targetDrag.x, _settings.Boundary.MinX, _settings.Boundary.MaxX);
+                _targetDrag = _targetDrag.WithX(newX);
             }
         }
 
         void OnDrag(object sender, DragEventArgs args)
         {
-            _dragVec = args.DragVector.normalized * MoveLimit;
-            _startDrag = transform.position;
-            _shouldDrag = true;
+            _dragDir = new Vector3(args.DragVector.x.Direction(), 0, 0);
+            _targetDrag += _dragDir * MoveLimit;
 
+            if (_targetDrag.x < _settings.Boundary.MinX || _targetDrag.x > _settings.Boundary.MaxX)
+            {
+                var newX = Mathf.Clamp(_targetDrag.x, _settings.Boundary.MinX, _settings.Boundary.MaxX);
+                _targetDrag = _targetDrag.WithX(newX);
+            }
         }
 
         void OnTriggerEnter(Collider other)
@@ -75,28 +84,37 @@ namespace _Scripts.Managers
 
         void Update()
         {
+            KeepInBoundary();
+
             if(transform.position.y < 0)
                 transform.SetY(0);
-
         }
 
+        void OnDestroy()
+        {
+            _inputAxis.OnMouseClick -= OnClick;
+            _inputAxis.OnMouseDrag -= OnDrag;
+        }
+            
         private void ClearForce()
         {
             _rb.angularVelocity = Vector3.zero;
             _rb.velocity = Vector3.zero;
         }
 
+        private void KeepInBoundary()
+        {
+            var newX = Mathf.Clamp(transform.position.x, _settings.Boundary.MinX, _settings.Boundary.MaxX);
+            transform.position = transform.position.WithX(newX);
+        }
+
         private void HandleDrag()
         {
-            if (!_shouldDrag) return;
+            var currentDir = _targetDrag - transform.position;
 
-            _rb.MovePosition(transform.position + _dragVec.normalized * Time.fixedDeltaTime * MoveSpeed);
+            if (currentDir.x == 0 || currentDir.x.Direction() != _dragDir.x.Direction()) return;
 
-            if (_dragVec.x < 0 && transform.position.x < _startDrag.x - MoveLimit // Left turn
-                || _dragVec.x > 0 && transform.position.x > _startDrag.x + MoveLimit) // Right turn
-            {
-                _shouldDrag = false;
-            }
+            _rb.MovePosition(transform.position + _dragDir * Time.fixedDeltaTime * MoveSpeed);
         }
     }
 }

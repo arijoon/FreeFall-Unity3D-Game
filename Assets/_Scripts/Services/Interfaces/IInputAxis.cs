@@ -7,7 +7,7 @@ namespace _Scripts.Services.Interfaces
     {
         event EventHandler<DragEventArgs> OnMouseDrag;
         //event EventHandler<DraggingEventArgs> OnMouseDraging;
-        event EventHandler<EventArgs> OnMouseClick;
+        event EventHandler<DragEventArgs> OnMouseClick;
         event EventHandler OnReset;
     }
 }

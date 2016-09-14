@@ -6,7 +6,11 @@ namespace GenericExtensions.Behaviours
     {
         void OnTriggerExit(Collider other)
         {
-            Destroy(other.gameObject.transform.parent.gameObject);
+            var parent = other.gameObject.transform.parent;
+
+            Destroy(parent != null 
+                ? parent.gameObject 
+                : other.gameObject);
         }
     }
 }

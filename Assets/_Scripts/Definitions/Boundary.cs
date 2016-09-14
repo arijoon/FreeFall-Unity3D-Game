@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace _Scripts.Definitions
 {
@@ -10,5 +11,20 @@ namespace _Scripts.Definitions
 
         public float MinY;
         public float MaxY;
+
+        public bool IsNotInBounds(Vector3 position)
+        {
+            return IsNotInHorizontalBound(position) || IsNotInVerticalBound(position);
+        }
+
+        public bool IsNotInHorizontalBound(Vector3 position)
+        {
+            return position.x < MinX || position.x > MaxX;
+        }
+
+        public bool IsNotInVerticalBound(Vector3 position)
+        {
+            return position.y < MinY || position.y > MaxY;
+        }
     }
 }

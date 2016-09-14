@@ -1,5 +1,4 @@
-﻿using Assets._Scripts.Extensions;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 using _Scripts.Services.Interfaces;
 

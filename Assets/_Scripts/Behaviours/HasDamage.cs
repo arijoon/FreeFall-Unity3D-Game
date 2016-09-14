@@ -6,15 +6,15 @@ namespace _Scripts.Behaviours
 {
     public class HasDamage : MonoBehaviour
     {
-        public float Damage { get { return GetDamage(); } }
+        public float Damage
+        {
+            get { return _damage; } 
+            set { _damage = value; }
+        }
 
         [SerializeField]
         private float _damage = 10f;
 
-        private float GetDamage()
-        {
-            return _damage;
-        }
     }
 
     public static class HasDamageExtensions
@@ -30,5 +30,6 @@ namespace _Scripts.Behaviours
 
             return 0;
         }
+
     }
 }

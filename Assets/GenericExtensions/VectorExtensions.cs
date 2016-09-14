@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets._Scripts.Extensions
+namespace GenericExtensions
 {
     public static class VectorExtensions
     {
@@ -12,6 +12,11 @@ namespace Assets._Scripts.Extensions
         public static Vector3 WithY(this Vector3 vector, float newY)
         {
             return new Vector3(vector.x, newY, vector.z);
+        }
+
+        public static Vector3 WithZ(this Vector3 vector, float newZ)
+        {
+            return new Vector3(vector.x, vector.y, newZ);
         }
     }
 }

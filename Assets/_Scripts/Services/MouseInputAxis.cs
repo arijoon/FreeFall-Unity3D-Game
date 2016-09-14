@@ -11,7 +11,7 @@ namespace _Scripts.Services
     public class MouseInputAxis : IInputAxis, ITickable
     {
         public event EventHandler<DragEventArgs> OnMouseDrag;
-        public event EventHandler<EventArgs> OnMouseClick;
+        public event EventHandler<DragEventArgs> OnMouseClick;
         public event EventHandler<DraggingEventArgs> OnMouseDraging;
         public event EventHandler OnReset;
 
@@ -51,7 +51,12 @@ namespace _Scripts.Services
 
                 if (Time.time - time < Constants.DragTime) // Click
                 {
-                    OnMouseClick.SafeCall(this, EventArgs.Empty);
+                    var args = new DragEventArgs()
+                    {
+                        DragVector = Camera.main.ScreenToWorldPoint(Input.mousePosition)
+                    };
+
+                    OnMouseClick.SafeCall(this, args);
                 }
                 else if (OnMouseDrag != null) // Drag
                 {

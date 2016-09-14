@@ -1,4 +1,5 @@
-﻿using GenericExtensions.Factories.Interfaces;
+﻿using System.Collections.Generic;
+using GenericExtensions.Factories.Interfaces;
 using UnityEngine;
 using Zenject;
 
@@ -20,7 +21,7 @@ namespace GenericExtensions.Factories
 
         public virtual GameObject Create()
         {
-            var result = Container.InstantiatePrefabExplicit(ObjectPrefab, null, GroupName, false);
+            var result = Container.InstantiatePrefabExplicit(ObjectPrefab, new List<TypeValuePair>(), GroupName, false);
 
             AfterCreate(result);
 

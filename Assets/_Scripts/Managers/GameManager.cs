@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections;
-using Assets._Scripts.Extensions;
 using GenericExtensions;
 using GenericExtensions.Events;
 using GenericExtensions.Factories;
+using GenericExtensions.Factories.Interfaces;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
@@ -11,6 +11,7 @@ using _Scripts.Definitions;
 using _Scripts.Definitions.ConstantClasses;
 using _Scripts.Definitions.Interfaces;
 using _Scripts.Definitions.Signals;
+using _Scripts.Factories;
 using _Scripts.Services.Interfaces;
 
 namespace _Scripts.Managers
@@ -28,12 +29,11 @@ namespace _Scripts.Managers
         public float Health { get; private set; }
 
         [Inject] IInputAxis _inputAxis;
-        [Inject] PrefabFactory _prefabFactory;
+        [Inject] IObjectFactory<PlatformFactory> _platformFactory;
         [Inject] Settings _settings;
         [Inject] AddScoreSignal _scoreSignal;
         [Inject] AddScoreSignal.Trigger _scoreTrigger;
 
-        [Inject(Id = Tags.Platform)] GameObject[] _platforms;
 
         public event EventHandler OnUpdateUi;
         public event EventHandler OnLevelFinished;
@@ -90,11 +90,9 @@ namespace _Scripts.Managers
                     return _lastPlatform.transform.position.y > _settings.Boundary.MinY - 20;
                 });
 
-                GameObject p = _platforms[UnityEngine.Random.Range(0, _platforms.Length)];
-
                 float randomXSpawn = UnityEngine.Random.Range(_settings.Boundary.MinX, _settings.Boundary.MaxX);
 
-                _lastPlatform = _prefabFactory.Create(p, SpawnLocation.position.WithX(randomXSpawn), SpawnLocation.rotation, Tags.Platform);
+                _lastPlatform = _platformFactory.Create(SpawnLocation.position.WithX(randomXSpawn), SpawnLocation.rotation);
                 _lastPlatform = _lastPlatform.GetComponentInChildren<Rigidbody>().gameObject;
 
                 _scoreTrigger.Fire(1);
