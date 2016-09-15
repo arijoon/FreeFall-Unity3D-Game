@@ -31,6 +31,7 @@ GameObject:
   - 114: {fileID: 11472300}
   - 114: {fileID: 11405020}
   - 114: {fileID: 11484498}
+  - 114: {fileID: 11426704}
   m_Layer: 0
   m_Name: BedModel
   m_TagString: Platform
@@ -155,6 +156,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RotationVector: {x: 30, y: 20, z: 70}
   Speed: 6
+--- !u!114 &11426704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c6c534d1c66ab418fca38376c0c81a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 10
 --- !u!114 &11472300
 MonoBehaviour:
   m_ObjectHideFlags: 1

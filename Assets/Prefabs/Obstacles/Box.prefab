@@ -31,6 +31,7 @@ GameObject:
   - 114: {fileID: 11433076}
   - 114: {fileID: 11436234}
   - 114: {fileID: 11497998}
+  - 114: {fileID: 11434698}
   m_Layer: 0
   m_Name: BoxModel
   m_TagString: Platform
@@ -155,6 +156,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Direction: {x: 0, y: 1, z: 0}
   TerminalVelocity: 15
+--- !u!114 &11434698
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c6c534d1c66ab418fca38376c0c81a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 10
 --- !u!114 &11436234
 MonoBehaviour:
   m_ObjectHideFlags: 1

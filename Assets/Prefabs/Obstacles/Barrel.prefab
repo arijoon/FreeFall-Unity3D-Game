@@ -15,6 +15,7 @@ GameObject:
   - 114: {fileID: 11485482}
   - 114: {fileID: 11427662}
   - 114: {fileID: 11433816}
+  - 114: {fileID: 11431838}
   m_Layer: 0
   m_Name: barrel
   m_TagString: Platform
@@ -137,6 +138,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RotationVector: {x: 50, y: 0, z: 50}
   Speed: 5
+--- !u!114 &11431838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c6c534d1c66ab418fca38376c0c81a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 10
 --- !u!114 &11433816
 MonoBehaviour:
   m_ObjectHideFlags: 1
