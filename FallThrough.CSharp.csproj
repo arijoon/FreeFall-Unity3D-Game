@@ -81,9 +81,11 @@
     <Compile Include="Assets\GenericExtensions\Factories\ObjectFactory.cs" />
     <Compile Include="Assets\GenericExtensions\Factories\PrefabFactory.cs" />
     <Compile Include="Assets\GenericExtensions\GameObjectExtensions.cs" />
+    <Compile Include="Assets\GenericExtensions\Interfaces\IWeighted.cs" />
     <Compile Include="Assets\GenericExtensions\ParticleSystemExtensions.cs" />
     <Compile Include="Assets\GenericExtensions\PrimeTypeExtensions.cs" />
     <Compile Include="Assets\GenericExtensions\TransformExtensions.cs" />
+    <Compile Include="Assets\GenericExtensions\Utils\WeightedVector.cs" />
     <Compile Include="Assets\GenericExtensions\VectorExtensions.cs" />
     <Compile Include="Assets\GenericExtensions\XmlExtensions.cs" />
     <Compile Include="Assets\Zenject\OptionalExtras\CommandsAndSignals\Command\Binders\CommandBinder0.cs" />
@@ -356,6 +358,7 @@
     <Compile Include="Assets\_Scripts\Definitions\Settings.cs" />
     <Compile Include="Assets\_Scripts\Definitions\Signals\AddScoreSignal.cs" />
     <Compile Include="Assets\_Scripts\Definitions\Signals\DamageTakenSignal.cs" />
+    <Compile Include="Assets\_Scripts\Definitions\Wrappers\PickupPrefab.cs" />
     <Compile Include="Assets\_Scripts\Definitions\Wrappers\PlatformPrefab.cs" />
     <Compile Include="Assets\_Scripts\Factories\PickupFactory.cs" />
     <Compile Include="Assets\_Scripts\Factories\PlatformFactory.cs" />

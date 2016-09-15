@@ -34,6 +34,7 @@ namespace _Scripts.Managers
         [Inject] IInputAxis _inputAxis;
         [Inject] IObjectFactory<PlatformFactory> _platformFactory;
         [Inject] IObjectFactory<PickupFactory> _pickupFactory;
+
         [Inject] Settings _settings;
         [Inject] AddScoreSignal _scoreSignal;
         [Inject] AddScoreSignal.Trigger _scoreTrigger;
@@ -80,9 +81,11 @@ namespace _Scripts.Managers
 
         IEnumerator GeneratePickups()
         {
+            var wait = new WaitForSeconds(PickupWait);
+
             while (true)
             {
-                yield return new WaitForSeconds(PickupWait);
+                yield return wait;
 
                 if (UnityEngine.Random.Range(0, 1) < PickupChance)
                 {
@@ -94,20 +97,20 @@ namespace _Scripts.Managers
         }
         IEnumerator GeneratePlatform()
         {
-            while (true)
-            {
-                float extraWait = _accumulatedWait;
-                _accumulatedWait = 0;
-
-                yield return new WaitForSeconds(Mathf.Max(GenerationWait + extraWait, .1f));
-
-                yield return new WaitUntil(() =>
+            var wait = new WaitForSeconds(Mathf.Max(GenerationWait));
+            var waitForPlatform = new WaitUntil(() =>
                 {
                     if (_lastPlatform == null)
                         return true;
 
                     return _lastPlatform.transform.position.y > _settings.Boundary.MinY - 20;
                 });
+
+            while (true)
+            {
+                yield return wait;
+
+                yield return waitForPlatform;
 
                 float randomXSpawn = UnityEngine.Random.Range(_settings.Boundary.MinX, _settings.Boundary.MaxX);
 

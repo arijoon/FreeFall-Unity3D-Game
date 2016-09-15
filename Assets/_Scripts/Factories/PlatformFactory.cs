@@ -1,4 +1,9 @@
-﻿using GenericExtensions.Factories;
+﻿using System.Collections;
+using System.Collections.Generic;
+using GenericExtensions;
+using GenericExtensions.Factories;
+using GenericExtensions.Interfaces;
+using GenericExtensions.Utils;
 using UnityEngine;
 using Zenject;
 using _Scripts.Behaviours;
@@ -16,25 +21,35 @@ namespace _Scripts.Factories
         }
 
         private readonly PlatformPrefab[] _platforms;
+        private readonly WeightedVector _prefabWeights;
+
         private GameObject _objectPrefab;
 
         public PlatformFactory([Inject(Id = Tags.Platform)] PlatformPrefab[] platform, DiContainer container) : base(container, Tags.Platform)
         {
             _platforms = platform;
+            _prefabWeights = new WeightedVector(_platforms);
         }
 
         public override GameObject Create()
         {
-            var platform = _platforms[Random.Range(0, _platforms.Length)];
+            int index = Random.Range(0, _prefabWeights.Total);
+
+            PlatformPrefab platform = _platforms[_prefabWeights.WeightedArray[index]];
+
             _objectPrefab = platform.Prefab;
 
             GameObject obj = base.Create();
 
-            HasDamage dmg = obj.AddComponent<HasDamage>();
+            HasDamage hasDamage = obj.FindComponent<HasDamage>();
 
-            dmg.Damage = platform.Damage;
+            if (hasDamage)
+            {
+                hasDamage.Damage = platform.Damage;
+            }
 
             return obj;
         }
+
     }
 }

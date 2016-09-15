@@ -23,13 +23,12 @@ namespace _Scripts.Behaviours
         public void Initialize(AddScoreSignal.Trigger trigger)
         {
             _trigger = trigger;
-            Debug.Log("Injectting shit...");
         }
 
         public override void Execute()
         {
-            Destroy(gameObject);
             _trigger.Fire(Score);
+            Destroy(gameObject);
         }
 
     }

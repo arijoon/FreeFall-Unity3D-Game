@@ -1,4 +1,5 @@
 ﻿using GenericExtensions.Factories;
+using GenericExtensions.Utils;
 using UnityEngine;
 using Zenject;
 using _Scripts.Behaviours;
@@ -16,23 +17,23 @@ namespace _Scripts.Factories
         }
 
         private readonly PickupPrefab[] _pickups;
+        private readonly WeightedVector _prefabWeights;
         private GameObject _objectPrefab;
 
-        public PickupFactory([Inject(Id = Tags.Pickup)] PickupPrefab[] pickup, DiContainer container) : base(container, Tags.Pickup)
+        public PickupFactory([Inject(Id = Tags.Pickup)] PickupPrefab[] pickups, DiContainer container) : base(container, Tags.Pickup)
         {
-            _pickups = pickup;
+            _pickups = pickups;
+            _prefabWeights = new WeightedVector(pickups);
         }
 
         public override GameObject Create()
         {
-            var pickup = _pickups[Random.Range(0, _pickups.Length)];
+            int index = Random.Range(0, _prefabWeights.Total);
+            var pickup = _pickups[_prefabWeights.WeightedArray[index]];
+
             _objectPrefab = pickup.Prefab;
 
             GameObject obj = base.Create();
-
-            HasScore score = obj.AddComponent<HasScore>();
-
-            score.Score = pickup.Score;
 
             return obj;
         }
