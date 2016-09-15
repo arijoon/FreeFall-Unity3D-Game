@@ -31,3 +31,34 @@ Library/
 *.pidb
 iOSAssets/Keys/
 Builds/
+
+# Unity Generated
+[Tt]emp/
+[Ll]ibrary/
+[Oo]bj/
+
+# Unity3D Generated File On Crash Reports
+sysinfo.txt
+
+# Visual Studio / MonoDevelop Generated
+ExportedObj/
+obj/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+
+# OS Generated
+desktop.ini
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

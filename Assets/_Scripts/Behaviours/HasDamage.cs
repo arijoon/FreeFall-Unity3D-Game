@@ -1,10 +1,12 @@
 ﻿using System;
 using GenericExtensions;
 using UnityEngine;
+using Zenject;
+using _Scripts.Definitions.Signals;
 
 namespace _Scripts.Behaviours
 {
-    public class HasDamage : MonoBehaviour
+    public class HasDamage : HasAction
     {
         public float Damage
         {
@@ -15,6 +17,18 @@ namespace _Scripts.Behaviours
         [SerializeField]
         private float _damage = 10f;
 
+        private DamageTakenSignal.Trigger _trigger;
+
+        [Inject]
+        public void Initialize(DamageTakenSignal.Trigger trigger)
+        {
+            _trigger = trigger;
+        }
+
+        public override void Execute()
+        {
+            _trigger.Fire(Damage);
+        }
     }
 
     public static class HasDamageExtensions

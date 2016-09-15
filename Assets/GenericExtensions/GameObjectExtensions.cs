@@ -14,9 +14,14 @@ namespace GenericExtensions
 
         public static T FindComponent<T>(this GameObject obj) where T : class
         {
-            return obj.GetComponent<T>() 
-                ?? obj.GetComponentInChildren<T>() 
-                ?? obj.GetComponentInParent<T>();
+            T result = obj.GetComponentInChildren<T>();
+
+            if (result != null && !result.Equals(null))
+            {
+                return result;
+            }
+
+            return obj.GetComponentInParent<T>();
         }
     }
 }

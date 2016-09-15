@@ -22,6 +22,7 @@ namespace _Scripts.Managers
         private IInputAxis _inputAxis;
         private Settings _settings;
         private DamageTakenSignal.Trigger _damageTrigger;
+        private AddScoreSignal.Trigger _scoreTrigger;
         private Rigidbody _rb;
 
         private Vector3 _dragDir;
@@ -32,11 +33,13 @@ namespace _Scripts.Managers
         [Inject]
         public void Initialize(IInputAxis input,
             Settings settings,
+            AddScoreSignal.Trigger scoreTrigger,
             DamageTakenSignal.Trigger damageTrigger)
         {
             _inputAxis = input;
             _settings = settings;
             _damageTrigger = damageTrigger;
+            _scoreTrigger = scoreTrigger;
             _targetDrag = transform.position;
 
             _rb = GetComponent<Rigidbody>();
@@ -71,9 +74,9 @@ namespace _Scripts.Managers
 
         void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag(Tags.Platform))
+            if (other.CompareTag(Tags.Platform) || other.CompareTag(Tags.Pickup))
             {
-                _damageTrigger.Fire(other.gameObject.GetDamage());
+                other.gameObject.ExecuteAction();
             }
         }
 
@@ -92,8 +95,11 @@ namespace _Scripts.Managers
 
         void OnDestroy()
         {
-            _inputAxis.OnMouseClick -= OnClick;
-            _inputAxis.OnMouseDrag -= OnDrag;
+            if (_inputAxis != null)
+            {
+                _inputAxis.OnMouseClick -= OnClick;
+                _inputAxis.OnMouseDrag -= OnDrag;
+            }
         }
             
         private void ClearForce()

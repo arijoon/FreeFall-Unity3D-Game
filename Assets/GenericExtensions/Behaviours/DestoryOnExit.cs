@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using _Scripts.Definitions.ConstantClasses;
 
 namespace GenericExtensions.Behaviours
 {
@@ -8,7 +9,7 @@ namespace GenericExtensions.Behaviours
         {
             var parent = other.gameObject.transform.parent;
 
-            Destroy(parent != null 
+            Destroy(parent != null && other.CompareTag(Tags.Platform) // TODO fix this hack
                 ? parent.gameObject 
                 : other.gameObject);
         }

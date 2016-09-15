@@ -23,6 +23,9 @@ namespace _Scripts.Managers
         public float PerClickWait;
         public float GenerationWait;
 
+        public float PickupWait = 1f;
+        public float PickupChance = .2f;
+
         public int Score { get; private set; }
         public bool Pause { get; private set; }
 
@@ -30,6 +33,7 @@ namespace _Scripts.Managers
 
         [Inject] IInputAxis _inputAxis;
         [Inject] IObjectFactory<PlatformFactory> _platformFactory;
+        [Inject] IObjectFactory<PickupFactory> _pickupFactory;
         [Inject] Settings _settings;
         [Inject] AddScoreSignal _scoreSignal;
         [Inject] AddScoreSignal.Trigger _scoreTrigger;
@@ -50,6 +54,7 @@ namespace _Scripts.Managers
             UpdateUi();
 
             StartCoroutine(GeneratePlatform());
+            StartCoroutine(GeneratePickups());
 
             //_inputAxis.OnMouseClick += (s, a) => _accumulatedWait += PerClickWait;
             _inputAxis.OnReset += OnReset;
@@ -73,6 +78,20 @@ namespace _Scripts.Managers
 
         #region Coroutines
 
+        IEnumerator GeneratePickups()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(PickupWait);
+
+                if (UnityEngine.Random.Range(0, 1) < PickupChance)
+                {
+                    float randomXSpawn = UnityEngine.Random.Range(_settings.Boundary.MinX, _settings.Boundary.MaxX);
+
+                    _pickupFactory.Create(SpawnLocation.position.WithX(randomXSpawn), SpawnLocation.rotation);
+                }
+            }
+        }
         IEnumerator GeneratePlatform()
         {
             while (true)
@@ -93,7 +112,7 @@ namespace _Scripts.Managers
                 float randomXSpawn = UnityEngine.Random.Range(_settings.Boundary.MinX, _settings.Boundary.MaxX);
 
                 _lastPlatform = _platformFactory.Create(SpawnLocation.position.WithX(randomXSpawn), SpawnLocation.rotation);
-                _lastPlatform = _lastPlatform.GetComponentInChildren<Rigidbody>().gameObject;
+                _lastPlatform = _lastPlatform.FindComponent<Rigidbody>().gameObject;
 
                 _scoreTrigger.Fire(1);
             }

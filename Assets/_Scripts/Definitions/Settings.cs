@@ -8,5 +8,7 @@ namespace _Scripts.Definitions
     {
         public LayerMask PlatformLayer;
         public Boundary Boundary;
+
+        public GameObject ExplosionSystemPrefab;
     }
 }

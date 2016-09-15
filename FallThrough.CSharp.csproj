@@ -81,6 +81,7 @@
     <Compile Include="Assets\GenericExtensions\Factories\ObjectFactory.cs" />
     <Compile Include="Assets\GenericExtensions\Factories\PrefabFactory.cs" />
     <Compile Include="Assets\GenericExtensions\GameObjectExtensions.cs" />
+    <Compile Include="Assets\GenericExtensions\ParticleSystemExtensions.cs" />
     <Compile Include="Assets\GenericExtensions\PrimeTypeExtensions.cs" />
     <Compile Include="Assets\GenericExtensions\TransformExtensions.cs" />
     <Compile Include="Assets\GenericExtensions\VectorExtensions.cs" />
@@ -336,6 +337,10 @@
     <Compile Include="Assets\Zenject\Source\Validation\ValidationMarker.cs" />
     <Compile Include="Assets\Zenject\Source\Validation\ValidationSceneDisabler.cs" />
     <Compile Include="Assets\_Scripts\Behaviours\BoundParticles.cs" />
+    <Compile Include="Assets\_Scripts\Behaviours\ExplodeOnContact.cs" />
+    <Compile Include="Assets\_Scripts\Behaviours\HasAction.cs" />
+    <Compile Include="Assets\_Scripts\Behaviours\HasScore.cs" />
+    <Compile Include="Assets\_Scripts\Behaviours\OccasionalFogger.cs" />
     <Compile Include="Assets\_Scripts\Behaviours\HasDamage.cs" />
     <Compile Include="Assets\_Scripts\Behaviours\Repeater.cs" />
     <Compile Include="Assets\_Scripts\Controllers\PlatformController.cs" />
@@ -352,7 +357,9 @@
     <Compile Include="Assets\_Scripts\Definitions\Signals\AddScoreSignal.cs" />
     <Compile Include="Assets\_Scripts\Definitions\Signals\DamageTakenSignal.cs" />
     <Compile Include="Assets\_Scripts\Definitions\Wrappers\PlatformPrefab.cs" />
+    <Compile Include="Assets\_Scripts\Factories\PickupFactory.cs" />
     <Compile Include="Assets\_Scripts\Factories\PlatformFactory.cs" />
+    <Compile Include="Assets\_Scripts\Managers\FogManager.cs" />
     <Compile Include="Assets\_Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\_Scripts\Managers\GameManager_Setup.cs" />
     <Compile Include="Assets\_Scripts\Managers\HealthManager.cs" />
