@@ -28,15 +28,17 @@ namespace _Scripts.Behaviours
 
         IEnumerator Fogger()
         {
+            var forEveryWait = new WaitForSeconds(FogEvery);
+            var fogTimeWait = new WaitForSeconds(FogTime);
             while (true)
             {
-                yield return new WaitForSeconds(FogEvery);
+                yield return forEveryWait;
 
                 if (Random.Range(0f, 1f) > FogChance) continue;
 
                 _ps.SetEmissionRate(_emission * Multiplier);
 
-                yield return new WaitForSeconds(FogTime);
+                yield return fogTimeWait;
 
                 _ps.SetEmissionRate(_emission);
             }

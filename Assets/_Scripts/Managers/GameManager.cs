@@ -57,7 +57,6 @@ namespace _Scripts.Managers
             StartCoroutine(GeneratePlatform());
             StartCoroutine(GeneratePickups());
 
-            //_inputAxis.OnMouseClick += (s, a) => _accumulatedWait += PerClickWait;
             _inputAxis.OnReset += OnReset;
             _scoreSignal.Event += OnAddScore;
         }

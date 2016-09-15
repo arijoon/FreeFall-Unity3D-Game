@@ -48,6 +48,7 @@ namespace _Scripts.Managers
             _inputAxis.OnMouseDrag += OnDrag;
         }
 
+        #region eventHandlers
         void OnClick(object sender, DragEventArgs args)
         {
             _dragDir = new Vector3(args.DragVector.x - transform.position.x, 0, 0).normalized;
@@ -79,6 +80,7 @@ namespace _Scripts.Managers
                 other.gameObject.ExecuteAction();
             }
         }
+        #endregion
 
         void FixedUpdate()
         {
@@ -110,8 +112,11 @@ namespace _Scripts.Managers
 
         private void KeepInBoundary()
         {
-            var newX = Mathf.Clamp(transform.position.x, _settings.Boundary.MinX, _settings.Boundary.MaxX);
-            transform.position = transform.position.WithX(newX);
+            if (_settings.Boundary.IsNotInHorizontalBound(transform.position))
+            {
+                var newX = Mathf.Clamp(transform.position.x, _settings.Boundary.MinX, _settings.Boundary.MaxX);
+                transform.position = transform.position.WithX(newX);
+            }
         }
 
         private void HandleDrag()

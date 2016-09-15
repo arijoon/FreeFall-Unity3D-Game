@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Linq;
 using UnityEngine;
 using Zenject;
 using _Scripts.Definitions;
@@ -9,6 +10,7 @@ namespace _Scripts.Behaviours
     public class BoundParticles : MonoBehaviour
     {
         public float MaxHeight;
+        public float CleanEvery = 1f;
 
         private ParticleSystem _ps;
 
@@ -16,26 +18,33 @@ namespace _Scripts.Behaviours
         public void Initialize(Settings settings)
         {
             _ps = GetComponent<ParticleSystem>();
+
+            StartCoroutine(BoundParticlesCoroutine());
         }
 
-        void Update()
+        IEnumerator BoundParticlesCoroutine()
         {
-            ParticleSystem.Particle[] particles = new ParticleSystem.Particle[_ps.particleCount];
-
-            int num = _ps.GetParticles(particles);
-
-            while (--num >= 0)
+            var wait = new WaitForSeconds(CleanEvery);
+            while (true)
             {
-                if (particles[num].position.z > MaxHeight)
+                yield return wait;
+
+                ParticleSystem.Particle[] particles = new ParticleSystem.Particle[_ps.particleCount];
+
+                int num = _ps.GetParticles(particles);
+
+                while (--num >= 0)
                 {
-                    particles[num].lifetime = 0;
+                    if (particles[num].position.z > MaxHeight)
+                    {
+                        particles[num].lifetime = 0;
+                    }
                 }
+
+                _ps.SetParticles(particles, particles.Length);
             }
 
-            _ps.SetParticles(particles, particles.Length);
         }
-
-
 
     }
 }

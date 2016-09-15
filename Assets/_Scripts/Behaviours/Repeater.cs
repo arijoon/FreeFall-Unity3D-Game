@@ -6,9 +6,7 @@ namespace _Scripts.Behaviours
     public class Repeater : MonoBehaviour
     {
         public float Speed;
-        public float MinSpeed = 1f;
         public float Length = 30f;
-        public float SpeedReductionPerClick;
 
         private Vector3 _startPos;
 
