@@ -1,11 +1,11 @@
-﻿using System;
-using GenericExtensions;
+﻿using GenericExtensions;
 using UnityEngine;
 using Zenject;
 using _Scripts.Definitions.Signals;
 
 namespace _Scripts.Behaviours
 {
+    [DisallowMultipleComponent]
     public class HasScore : HasAction
     {
         public int Score
@@ -42,7 +42,9 @@ namespace _Scripts.Behaviours
             if (hasScore != null)
                 return hasScore.Score;
 
+#if DEBUG
             Debug.LogWarning("[?] Score component not found");
+#endif
 
             return 0;
         }

@@ -16,6 +16,7 @@ using _Scripts.Services.Interfaces;
 
 namespace _Scripts.Managers
 {
+    [DisallowMultipleComponent]
     public partial class GameManager : MonoBehaviour, IGameManager
     {
         public Transform SpawnLocation;

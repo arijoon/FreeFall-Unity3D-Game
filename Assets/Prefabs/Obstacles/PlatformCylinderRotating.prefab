@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 452978}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlatformCylinderRotating
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ GameObject:
   - 114: {fileID: 11481626}
   - 114: {fileID: 11483996}
   - 114: {fileID: 11428818}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Platform
   m_Icon: {fileID: 0}

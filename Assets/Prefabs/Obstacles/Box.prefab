@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 497382}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,7 +32,7 @@ GameObject:
   - 114: {fileID: 11436234}
   - 114: {fileID: 11497998}
   - 114: {fileID: 11434698}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BoxModel
   m_TagString: Platform
   m_Icon: {fileID: 0}

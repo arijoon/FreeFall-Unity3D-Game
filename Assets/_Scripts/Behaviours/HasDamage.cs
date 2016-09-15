@@ -6,6 +6,7 @@ using _Scripts.Definitions.Signals;
 
 namespace _Scripts.Behaviours
 {
+    [DisallowMultipleComponent]
     public class HasDamage : HasAction
     {
         public float Damage
@@ -40,7 +41,9 @@ namespace _Scripts.Behaviours
             if (damageComponent != null)
                 return damageComponent.Damage;
 
+#if DEBUG
             Debug.LogWarning("[?] Damage component not found");
+#endif
 
             return 0;
         }

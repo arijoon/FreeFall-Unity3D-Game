@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 408722}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: transform3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ GameObject:
   - 114: {fileID: 11413126}
   - 114: {fileID: 11409008}
   - 114: {fileID: 11474452}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: rock1
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 428704}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: transform2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 488742}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: transform1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 462648}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 459730}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 468226}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - 4: {fileID: 400368}
   - 33: {fileID: 3367234}
   - 23: {fileID: 2371058}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 465602}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

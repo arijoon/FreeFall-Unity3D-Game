@@ -20,7 +20,9 @@ namespace _Scripts.Behaviours
             }
             else
             {
+#if DEBUG
                 Debug.Log("[?] Gameobject has no action");
+#endif
             }
         }
     }

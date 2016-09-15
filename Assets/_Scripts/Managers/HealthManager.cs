@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
+using _Scripts.Definitions.ConstantClasses;
 using _Scripts.Definitions.Interfaces;
 using _Scripts.Definitions.Signals;
 
@@ -19,6 +20,7 @@ namespace _Scripts.Managers
         private float _healthReductions;
 
         private IEnumerator _blinker;
+        private WaitForSeconds _blinkWait;
 
         [Inject]
         public void Initialize(DamageTakenSignal damageTakenSig, IGameManager gm)
@@ -30,6 +32,8 @@ namespace _Scripts.Managers
             _blinker = BlinkHeart(HealthSettings.BlinksPerHit);
 
             damageTakenSig.Event += OnDamageTaken;
+
+            _blinkWait = new WaitForSeconds(HealthSettings.BlinkWait);
 
             HealthSettings.HealthImage.color = Color.Lerp(HealthSettings.MinColor, HealthSettings.MaxColor, Health);
         }
@@ -62,7 +66,7 @@ namespace _Scripts.Managers
                 
                 HealthSettings.HealthImage.fillAmount = Mathf.Max(_sliderHealth, 0);
                 HealthSettings.HealthImage.color = Color.Lerp(HealthSettings.MinColor, HealthSettings.MaxColor, _sliderHealth);
-                HealthSettings.HealthText.text = string.Format("Health: {0}%", Mathf.Ceil(_sliderHealth*HealthSettings.MaxHealth));
+                HealthSettings.HealthText.text = string.Format(Labels.Health, Mathf.Ceil(_sliderHealth*HealthSettings.MaxHealth));
             }
         }
 
@@ -78,9 +82,9 @@ namespace _Scripts.Managers
             for (int i = 0; i < times; i++)
             {
                 image.color = newColor;
-                yield return new WaitForSeconds(HealthSettings.BlinkWait);
+                yield return _blinkWait;
                 image.color = backUpColor;
-                yield return new WaitForSeconds(HealthSettings.BlinkWait);
+                yield return _blinkWait;
             }
 
         }

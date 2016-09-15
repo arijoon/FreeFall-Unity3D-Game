@@ -42,7 +42,7 @@ namespace _Scripts.Managers
 
         private void UpdateScore()
         {
-            string text = string.Format("Bonus: ${0}", _gm.Score);
+            string text = string.Format(Labels.Bonus, _gm.Score);
             BonusText.text = text;
         }
     }

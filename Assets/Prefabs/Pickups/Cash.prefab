@@ -13,7 +13,7 @@ GameObject:
   - 54: {fileID: 5479096}
   - 114: {fileID: 11419906}
   - 114: {fileID: 11492038}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cash
   m_TagString: Pickup
   m_Icon: {fileID: 0}
