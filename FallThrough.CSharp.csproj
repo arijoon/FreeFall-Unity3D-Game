@@ -71,7 +71,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\GenericExtensions\Behaviours\DestoryOnExit.cs" />
+    <Compile Include="Assets\GenericExtensions\Behaviours\DeactivateOnExit.cs" />
     <Compile Include="Assets\GenericExtensions\Behaviours\Gravity.cs" />
     <Compile Include="Assets\GenericExtensions\Behaviours\Moving.cs" />
     <Compile Include="Assets\GenericExtensions\Behaviours\Rotator.cs" />
@@ -81,10 +81,14 @@
     <Compile Include="Assets\GenericExtensions\Factories\ObjectFactory.cs" />
     <Compile Include="Assets\GenericExtensions\Factories\PrefabFactory.cs" />
     <Compile Include="Assets\GenericExtensions\GameObjectExtensions.cs" />
+    <Compile Include="Assets\GenericExtensions\Interfaces\IObjectPool.cs" />
     <Compile Include="Assets\GenericExtensions\Interfaces\IWeighted.cs" />
+    <Compile Include="Assets\GenericExtensions\Interfaces\ITaskManager.cs" />
+    <Compile Include="Assets\GenericExtensions\Managers\TaskManager.cs" />
     <Compile Include="Assets\GenericExtensions\ParticleSystemExtensions.cs" />
     <Compile Include="Assets\GenericExtensions\PrimeTypeExtensions.cs" />
     <Compile Include="Assets\GenericExtensions\TransformExtensions.cs" />
+    <Compile Include="Assets\GenericExtensions\Utils\ObjectPool.cs" />
     <Compile Include="Assets\GenericExtensions\Utils\WeightedVector.cs" />
     <Compile Include="Assets\GenericExtensions\VectorExtensions.cs" />
     <Compile Include="Assets\GenericExtensions\XmlExtensions.cs" />

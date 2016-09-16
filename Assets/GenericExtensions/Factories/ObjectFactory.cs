@@ -1,5 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using GenericExtensions.Factories.Interfaces;
+using GenericExtensions.Interfaces;
+using GenericExtensions.Utils;
+using UnityEditor;
 using UnityEngine;
 using Zenject;
 
@@ -13,15 +17,29 @@ namespace GenericExtensions.Factories
 
         protected readonly string GroupName;
 
+        protected readonly Dictionary<string, IObjectPool> Pool;
+
         protected ObjectFactory(DiContainer container, string groupName = null)
         {
             Container = container;
             GroupName = groupName;
+
+            Pool = new Dictionary<string, IObjectPool>(StringComparer.Ordinal);
         }
 
         public virtual GameObject Create()
         {
-            var result = Container.InstantiatePrefabExplicit(ObjectPrefab, new List<TypeValuePair>(), GroupName, false);
+            var result = GetPooledObjectIfExists(ObjectPrefab.name);
+
+            if (result == null)
+            {
+                result = Container.InstantiatePrefabExplicit(ObjectPrefab, new List<TypeValuePair>(), GroupName, false);
+                PoolObject(result, ObjectPrefab.name);
+            }
+            else
+            {
+                result.SetActive(true);
+            }
 
             AfterCreate(result);
 
@@ -47,6 +65,28 @@ namespace GenericExtensions.Factories
         /// Override to add after creation logic such as timed destroy
         /// </summary>
         protected virtual void AfterCreate(GameObject gameObject) { }
+
+        protected virtual void PoolObject(GameObject gameObject, string name)
+        {
+            if (!Pool.ContainsKey(name))
+            {
+                Pool[name] = new ObjectPool(gameObject);
+            }
+            else
+            {
+                Pool[name].AddToPool(gameObject);
+            }
+        }
+
+        protected virtual GameObject GetPooledObjectIfExists(string name)
+        {
+            if (Pool.ContainsKey(name))
+            {
+                return Pool[name].NextAvailable(); // null if none available
+            }
+
+            return null;
+        }
     }
 
 }

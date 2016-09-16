@@ -6,5 +6,6 @@
         public const string Pickup = "Pickup";
         public const string Platform = "Platform";
         public const string Player = "Player";
+        public const string Explosions = "Explosions";
     }
 }

@@ -33,13 +33,16 @@ namespace _Scripts.Factories
 
         public override GameObject Create()
         {
-            int index = Random.Range(0, _prefabWeights.Total);
+            int weightIndex = Random.Range(0, _prefabWeights.Total);
+            int platformIndex = _prefabWeights.WeightedArray[weightIndex];
 
-            PlatformPrefab platform = _platforms[_prefabWeights.WeightedArray[index]];
+            PlatformPrefab platform = _platforms[_prefabWeights.WeightedArray[platformIndex]];
 
             _objectPrefab = platform.Prefab;
 
             GameObject obj = base.Create();
+
+            obj.FindComponent<Rigidbody>().gameObject.transform.localPosition = Vector3.zero;
 
             HasDamage hasDamage = obj.FindComponent<HasDamage>();
 

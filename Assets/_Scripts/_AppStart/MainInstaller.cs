@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using GenericExtensions.Interfaces;
+using GenericExtensions.Managers;
+using UnityEngine;
 using Zenject;
 using _Scripts.Definitions;
 using _Scripts.Definitions.Interfaces;
@@ -14,11 +16,16 @@ namespace _Scripts._AppStart
         public Settings Settings;
 
         public GameManager GameManager;
+        public TaskManager TaskManager;
 
         public GameObject Player;
 
         public override void InstallBindings()
         {
+            Container.Bind<ITaskManager>()
+                .FromInstance(TaskManager)
+                .AsSingle();
+
             Container.Bind<IGameManager>()
                 .FromInstance(GameManager)
                 .AsSingle();

@@ -28,7 +28,7 @@ namespace _Scripts.Behaviours
         public override void Execute()
         {
             _trigger.Fire(Score);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
 
     }
