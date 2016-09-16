@@ -4,7 +4,7 @@ using Zenject;
 using _Scripts.Definitions;
 using Random = UnityEngine.Random;
 
-namespace GenericExtensions.Behaviours
+namespace GenericExtensions.Behaviours.MovementAndPull
 {
     [RequireComponent(typeof(Rigidbody))]
     public class MovingInBounds : MonoBehaviour

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Zenject;
 
-namespace GenericExtensions.Behaviours
+namespace GenericExtensions.Behaviours.MovementAndPull
 {
     [RequireComponent(typeof(Rigidbody))]
     public class Mover : MonoBehaviour

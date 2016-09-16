@@ -1,5 +1,6 @@
 ﻿using System;
 using GenericExtensions;
+using GenericExtensions.Behaviours;
 using UnityEngine;
 using Zenject;
 using Zenject.Asteroids;
@@ -21,8 +22,6 @@ namespace _Scripts.Managers
 
         private IInputAxis _inputAxis;
         private Settings _settings;
-        private DamageTakenSignal.Trigger _damageTrigger;
-        private AddScoreSignal.Trigger _scoreTrigger;
         private Rigidbody _rb;
 
         private Vector3 _dragDir;
@@ -31,15 +30,10 @@ namespace _Scripts.Managers
         private bool _shouldDrag;
 
         [Inject]
-        public void Initialize(IInputAxis input,
-            Settings settings,
-            AddScoreSignal.Trigger scoreTrigger,
-            DamageTakenSignal.Trigger damageTrigger)
+        public void Initialize(IInputAxis input, Settings settings)
         {
             _inputAxis = input;
             _settings = settings;
-            _damageTrigger = damageTrigger;
-            _scoreTrigger = scoreTrigger;
             _targetDrag = transform.position;
 
             _rb = GetComponent<Rigidbody>();

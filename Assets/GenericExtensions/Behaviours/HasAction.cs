@@ -1,8 +1,7 @@
-﻿using GenericExtensions;
-using GenericExtensions.Interfaces;
+﻿using GenericExtensions.Interfaces;
 using UnityEngine;
 
-namespace _Scripts.Behaviours
+namespace GenericExtensions.Behaviours
 {
     public abstract class HasAction : MonoBehaviour, ICommand
     {

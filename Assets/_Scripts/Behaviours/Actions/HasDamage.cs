@@ -1,10 +1,10 @@
-﻿using System;
-using GenericExtensions;
+﻿using GenericExtensions;
+using GenericExtensions.Behaviours;
 using UnityEngine;
 using Zenject;
 using _Scripts.Definitions.Signals;
 
-namespace _Scripts.Behaviours
+namespace _Scripts.Behaviours.Actions
 {
     [DisallowMultipleComponent]
     public class HasDamage : HasAction

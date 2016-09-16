@@ -1,9 +1,8 @@
 ﻿using System.Collections;
-using GenericExtensions;
 using UnityEngine;
 using Zenject;
 
-namespace _Scripts.Behaviours
+namespace GenericExtensions.Behaviours.ParticleSystems
 {
     [RequireComponent(typeof(ParticleSystem))]
     public class OccasionalFogger : MonoBehaviour

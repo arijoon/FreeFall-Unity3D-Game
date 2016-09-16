@@ -2,7 +2,7 @@
 using Zenject;
 using _Scripts.Services.Interfaces;
 
-namespace GenericExtensions.Behaviours
+namespace GenericExtensions.Behaviours.MovementAndPull
 {
     [RequireComponent(typeof(Rigidbody))]
     public class SimulatedGravity : MonoBehaviour

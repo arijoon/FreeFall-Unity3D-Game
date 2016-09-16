@@ -1,10 +1,9 @@
 ﻿using System.Collections;
-using System.Linq;
 using UnityEngine;
 using Zenject;
 using _Scripts.Definitions;
 
-namespace _Scripts.Behaviours
+namespace GenericExtensions.Behaviours.ParticleSystems
 {
     [RequireComponent(typeof(ParticleSystem))]
     public class BoundParticles : MonoBehaviour

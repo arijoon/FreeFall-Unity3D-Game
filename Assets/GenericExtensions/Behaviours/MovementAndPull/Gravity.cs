@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace GenericExtensions.Behaviours
+namespace GenericExtensions.Behaviours.MovementAndPull
 {
     public class Gravity : MonoBehaviour
     {

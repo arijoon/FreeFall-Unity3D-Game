@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Zenject;
 
-namespace _Scripts.Behaviours
+namespace GenericExtensions.Behaviours.MovementAndPull
 {
     public class Repeater : MonoBehaviour
     {
