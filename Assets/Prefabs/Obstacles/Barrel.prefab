@@ -12,10 +12,10 @@ GameObject:
   - 33: {fileID: 3391202}
   - 23: {fileID: 2304148}
   - 54: {fileID: 5404430}
-  - 114: {fileID: 11485482}
   - 114: {fileID: 11427662}
   - 114: {fileID: 11433816}
   - 114: {fileID: 11426766}
+  - 114: {fileID: 11496902}
   m_Layer: 8
   m_Name: barrel
   m_TagString: Platform
@@ -123,8 +123,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0710109, y: 0.14106372, z: 0.07101092}
-  m_Center: {x: 0.0000000018626451, y: -0.007974457, z: -0.0000000055879354}
+  m_Size: {x: -0.06, y: 0.15, z: 0.07}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11426766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CleanAfter: 3
---- !u!114 &11485482
+--- !u!114 &11496902
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -170,11 +170,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 120530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fb2251d97c307b4a8b2a19257bb9943, type: 3}
+  m_Script: {fileID: 11500000, guid: f68d4106f6831d54495a69ab069f5da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Speed: 15
   Direction: {x: 0, y: 1, z: 0}
-  TerminalVelocity: 15
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -43,8 +43,6 @@ namespace _Scripts.Managers
 
         private void LoadLevel(int level)
         {
-            PlayerPrefs.SetInt(PlayerPrefKeys.CurrentLevel, level);
-
             SceneManager.LoadScene(SceneIndexes.Main);
         }
 

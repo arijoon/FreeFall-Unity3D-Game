@@ -15,16 +15,16 @@ namespace _Scripts.Behaviours
 
         private Settings _settings;
         private PrefabFactory _prefabFactory;
-        private ITaskManager _taskManager;
+        private ICleaner _cleaner;
 
         private WaitForSeconds _cleanWait;
 
         [Inject]
-        public void Initialize(PrefabFactory prefabFactory, Settings settings, ITaskManager taskManager)
+        public void Initialize(PrefabFactory prefabFactory, Settings settings, ICleaner cleaner)
         {
             _prefabFactory = prefabFactory;
             _settings = settings;
-            _taskManager = taskManager;
+            _cleaner = cleaner;
 
             _cleanWait = new WaitForSeconds(CleanAfter);
         }
@@ -35,9 +35,9 @@ namespace _Scripts.Behaviours
             {
                 var obj = _prefabFactory.Create(_settings.ExplosionSystemPrefab, transform.position, Quaternion.identity);
 
-                _taskManager.DeactivateAfter(obj, _cleanWait);
+                _cleaner.Clean(obj, _cleanWait);
 
-                gameObject.SetActive(false);
+                _cleaner.Clean(gameObject);
             }
         }
     }

@@ -28,9 +28,9 @@ GameObject:
   - 23: {fileID: 2336830}
   - 54: {fileID: 5408960}
   - 114: {fileID: 11451852}
-  - 114: {fileID: 11481626}
   - 114: {fileID: 11483996}
   - 114: {fileID: 11428818}
+  - 114: {fileID: 11408706}
   m_Layer: 8
   m_Name: Cylinder
   m_TagString: Platform
@@ -113,6 +113,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 56
   m_CollisionDetection: 0
+--- !u!114 &11408706
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f68d4106f6831d54495a69ab069f5da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 15
+  Direction: {x: 0, y: 1, z: 0}
 --- !u!114 &11428818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,19 +151,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RotationVector: {x: 0, y: 50, z: 50}
   Speed: 6
---- !u!114 &11481626
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 189212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fb2251d97c307b4a8b2a19257bb9943, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Direction: {x: 0, y: 1, z: 0}
-  TerminalVelocity: 15
 --- !u!114 &11483996
 MonoBehaviour:
   m_ObjectHideFlags: 1

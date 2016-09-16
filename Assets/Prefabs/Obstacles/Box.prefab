@@ -28,10 +28,10 @@ GameObject:
   - 95: {fileID: 9542282}
   - 65: {fileID: 6534378}
   - 54: {fileID: 5471994}
-  - 114: {fileID: 11433076}
   - 114: {fileID: 11436234}
   - 114: {fileID: 11497998}
   - 114: {fileID: 11434698}
+  - 114: {fileID: 11407502}
   m_Layer: 8
   m_Name: BoxModel
   m_TagString: Platform
@@ -124,7 +124,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.06, y: 0.06, z: 0.056}
+  m_Size: {x: 0.06, y: 0.06, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &9542282
 Animator:
@@ -143,7 +143,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11433076
+--- !u!114 &11407502
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -151,11 +151,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 187488}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fb2251d97c307b4a8b2a19257bb9943, type: 3}
+  m_Script: {fileID: 11500000, guid: f68d4106f6831d54495a69ab069f5da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Speed: 15
   Direction: {x: 0, y: 1, z: 0}
-  TerminalVelocity: 15
 --- !u!114 &11434698
 MonoBehaviour:
   m_ObjectHideFlags: 1

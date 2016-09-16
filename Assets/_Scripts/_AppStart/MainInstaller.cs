@@ -1,5 +1,6 @@
 ﻿using GenericExtensions.Interfaces;
 using GenericExtensions.Managers;
+using GenericExtensions.Services;
 using UnityEngine;
 using Zenject;
 using _Scripts.Definitions;
@@ -28,6 +29,9 @@ namespace _Scripts._AppStart
 
             Container.Bind<IGameManager>()
                 .FromInstance(GameManager)
+                .AsSingle();
+
+            Container.Bind<ICleaner>().To<Deactivator>()
                 .AsSingle();
 
             Container.BindInstance(Settings);

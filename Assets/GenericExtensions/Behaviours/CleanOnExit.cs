@@ -1,21 +1,25 @@
-﻿using UnityEngine;
+﻿using GenericExtensions.Interfaces;
+using UnityEngine;
+using Zenject;
 using _Scripts.Definitions.ConstantClasses;
 
 namespace GenericExtensions.Behaviours
 {
-    public class DeactivateOnExit : MonoBehaviour
+    public class CleanOnExit : MonoBehaviour
     {
+        [Inject] ICleaner _cleaner;
+
         void OnTriggerExit(Collider other)
         {
             var parent = other.gameObject.transform.parent;
 
             if (parent != null && other.CompareTag(Tags.Platform)) // TODO fix this hack
             {
-                parent.gameObject.SetActive(false);
+                _cleaner.Clean(parent.gameObject);
             }
             else
             {
-                other.gameObject.SetActive(false);
+                _cleaner.Clean(other.gameObject);
             }
         }
     }

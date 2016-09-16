@@ -28,10 +28,10 @@ GameObject:
   - 95: {fileID: 9588326}
   - 65: {fileID: 6529788}
   - 54: {fileID: 5415940}
-  - 114: {fileID: 11472300}
   - 114: {fileID: 11405020}
   - 114: {fileID: 11484498}
   - 114: {fileID: 11426704}
+  - 114: {fileID: 11468148}
   m_Layer: 8
   m_Name: BedModel
   m_TagString: Platform
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 10
---- !u!114 &11472300
+--- !u!114 &11468148
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -176,11 +176,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 138318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fb2251d97c307b4a8b2a19257bb9943, type: 3}
+  m_Script: {fileID: 11500000, guid: f68d4106f6831d54495a69ab069f5da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Speed: 15
   Direction: {x: 0, y: 1, z: 0}
-  TerminalVelocity: 15
 --- !u!114 &11484498
 MonoBehaviour:
   m_ObjectHideFlags: 1

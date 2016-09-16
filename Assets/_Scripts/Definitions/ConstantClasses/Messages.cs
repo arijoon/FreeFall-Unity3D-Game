@@ -4,4 +4,9 @@
     {
         public const string NewHighScore = "New HighScore Achieved!";
     }
+
+    public static class ErrorMessages
+    {
+
+    }
 }

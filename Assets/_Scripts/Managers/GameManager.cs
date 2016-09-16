@@ -130,6 +130,7 @@ namespace _Scripts.Managers
 
         public void GameOver()
         {
+            SetHighestScore();
             Reset();
         }
 
@@ -145,40 +146,22 @@ namespace _Scripts.Managers
 
         private void SetHighestScore()
         {
-            if (!PlayerPrefs.HasKey(PlayerPrefKeys.HighestScore))
+            if (!PlayerPrefs.HasKey(PlayerPrefKeys.MaxBonus))
             {
-                PlayerPrefs.SetInt(PlayerPrefKeys.HighestScore, Score);
+                PlayerPrefs.SetInt(PlayerPrefKeys.MaxBonus, Score);
                 OnNewHighScore.SafeCall(this);
             }
             else
             {
-                int currentScore = PlayerPrefs.GetInt(PlayerPrefKeys.HighestScore);
+                int currentScore = PlayerPrefs.GetInt(PlayerPrefKeys.MaxBonus);
 
                 if (currentScore < Score)
                 {
-                    PlayerPrefs.SetInt(PlayerPrefKeys.HighestScore, Score);
+                    PlayerPrefs.SetInt(PlayerPrefKeys.MaxBonus, Score);
                     OnNewHighScore.SafeCall(this);
                 }
             }
         }
-
-        private void SetMaxLevelReached()
-        {
-
-            //if (!PlayerPrefs.HasKey(PlayerPrefKeys.MaxLevelReached))
-            //{
-            //    PlayerPrefs.SetInt(PlayerPrefKeys.MaxLevelReached, _currentLevelNum + 1);
-            //}
-            //else if (PlayerPrefs.GetInt(PlayerPrefKeys.MaxLevelReached) < _currentLevelNum + 1)
-            //{
-            //    int highestLevel = _totalLevels < _currentLevelNum + 1
-            //        ? _totalLevels
-            //        : _currentLevelNum + 1;
-
-            //    PlayerPrefs.SetInt(PlayerPrefKeys.MaxLevelReached, highestLevel);
-            //}
-        }
-
     }
 }
 

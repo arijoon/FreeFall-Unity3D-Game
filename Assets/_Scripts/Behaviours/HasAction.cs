@@ -1,9 +1,10 @@
 ﻿using GenericExtensions;
+using GenericExtensions.Interfaces;
 using UnityEngine;
 
 namespace _Scripts.Behaviours
 {
-    public abstract class HasAction : MonoBehaviour
+    public abstract class HasAction : MonoBehaviour, ICommand
     {
         public abstract void Execute();
     }

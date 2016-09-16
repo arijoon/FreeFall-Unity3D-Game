@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 namespace GenericExtensions.Behaviours
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class Moving : MonoBehaviour
+    public class MovingInBounds : MonoBehaviour
     {
         public float MoveSpeed;
 
