@@ -85,6 +85,9 @@
     <Reference Include="UnityEditor.Android.Extensions">
       <HintPath>Library\UnityAssemblies\UnityEditor.Android.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.WebGL.Extensions">
       <HintPath>Library\UnityAssemblies\UnityEditor.WebGL.Extensions.dll</HintPath>
     </Reference>
@@ -93,6 +96,15 @@
     </Reference>
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MATWinStore">
+      <HintPath>Assets\Plugins\MATWinStore.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +119,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
+    <Compile Include="Assets\Tune\Editor\TunePostBuildTrigger.cs" />
+    <Compile Include="Assets\Tune\Editor\TuneSettings.cs" />
+    <Compile Include="Assets\Tune\Editor\TuneSettingsEditor.cs" />
     <Compile Include="Assets\Zenject\Source\Editor\EditorWindow\GuiRenderableManager.cs" />
     <Compile Include="Assets\Zenject\Source\Editor\EditorWindow\IGuiRenderable.cs" />
     <Compile Include="Assets\Zenject\Source\Editor\EditorWindow\ZenjectEditorWindow.cs" />

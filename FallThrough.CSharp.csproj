@@ -61,6 +61,15 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MATWinStore">
+      <HintPath>Assets\Plugins\MATWinStore.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="FallThrough.CSharp.Plugins.csproj">
@@ -77,6 +86,7 @@
     <Compile Include="Assets\GenericExtensions\Behaviours\MovementAndPull\Repeater.cs" />
     <Compile Include="Assets\GenericExtensions\Behaviours\MovementAndPull\Rotator.cs" />
     <Compile Include="Assets\GenericExtensions\Behaviours\MovementAndPull\SimulatedGravity.cs" />
+    <Compile Include="Assets\GenericExtensions\Behaviours\Moving.cs" />
     <Compile Include="Assets\GenericExtensions\Behaviours\ParticleSystems\BoundParticles.cs" />
     <Compile Include="Assets\GenericExtensions\Behaviours\ParticleSystems\OccasionalFogger.cs" />
     <Compile Include="Assets\GenericExtensions\Events\EventExtensions.cs" />
@@ -99,6 +109,12 @@
     <Compile Include="Assets\GenericExtensions\Utils\WeightedVector.cs" />
     <Compile Include="Assets\GenericExtensions\VectorExtensions.cs" />
     <Compile Include="Assets\GenericExtensions\XmlExtensions.cs" />
+    <Compile Include="Assets\Tune\Scripts\Tune.cs" />
+    <Compile Include="Assets\Tune\Scripts\TuneAndroid.cs" />
+    <Compile Include="Assets\Tune\Scripts\TuneExterns.cs" />
+    <Compile Include="Assets\Tune\Scripts\TuneListener.cs" />
+    <Compile Include="Assets\Tune\Scripts\TuneSample.cs" />
+    <Compile Include="Assets\Tune\Scripts\TuneStructs.cs" />
     <Compile Include="Assets\Zenject\OptionalExtras\CommandsAndSignals\Command\Binders\CommandBinder0.cs" />
     <Compile Include="Assets\Zenject\OptionalExtras\CommandsAndSignals\Command\Binders\CommandBinder1.cs" />
     <Compile Include="Assets\Zenject\OptionalExtras\CommandsAndSignals\Command\Binders\CommandBinder2.cs" />
@@ -349,11 +365,13 @@
     <Compile Include="Assets\Zenject\Source\Validation\IValidatable.cs" />
     <Compile Include="Assets\Zenject\Source\Validation\ValidationMarker.cs" />
     <Compile Include="Assets\Zenject\Source\Validation\ValidationSceneDisabler.cs" />
+    <Compile Include="Assets\_Scripts\Advertising\InstallTracking\InstallTracker.cs" />
     <Compile Include="Assets\_Scripts\Behaviours\Actions\HasDamage.cs" />
     <Compile Include="Assets\_Scripts\Behaviours\Actions\HasScore.cs" />
     <Compile Include="Assets\_Scripts\Behaviours\ExplodeOnContact.cs" />
     <Compile Include="Assets\_Scripts\Debugging\DebugManager.cs" />
     <Compile Include="Assets\_Scripts\Definitions\Boundary.cs" />
+    <Compile Include="Assets\_Scripts\Definitions\ConstantClasses\Ads.cs" />
     <Compile Include="Assets\_Scripts\Definitions\ConstantClasses\Constants.cs" />
     <Compile Include="Assets\_Scripts\Definitions\ConstantClasses\Labels.cs" />
     <Compile Include="Assets\_Scripts\Definitions\ConstantClasses\Messages.cs" />
