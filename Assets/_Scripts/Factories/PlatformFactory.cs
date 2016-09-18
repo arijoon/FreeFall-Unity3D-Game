@@ -1,14 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using GenericExtensions;
+﻿using GenericExtensions;
+using GenericExtensions.Behaviours.MovementAndPull;
 using GenericExtensions.Factories;
-using GenericExtensions.Interfaces;
 using GenericExtensions.Utils;
 using UnityEngine;
 using Zenject;
-using _Scripts.Behaviours;
 using _Scripts.Behaviours.Actions;
-using _Scripts.Definitions;
 using _Scripts.Definitions.ConstantClasses;
 using _Scripts.Definitions.Wrappers;
 
@@ -42,6 +38,10 @@ namespace _Scripts.Factories
             _objectPrefab = platform.Prefab;
 
             GameObject obj = base.Create();
+
+            //GameObject objWithRb = obj.FindComponent<Rigidbody>().gameObject;
+            //if(objWithRb.GetComponent<ResetLocalTransformOnDisable>() == null)
+            //    Container.InstantiateComponent<ResetLocalTransformOnDisable>(objWithRb);
 
             obj.FindComponent<Rigidbody>().gameObject.transform.localPosition = Vector3.zero;
 

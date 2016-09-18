@@ -10,13 +10,11 @@ namespace GenericExtensions.Behaviours.MovementAndPull
 
         public Vector3 Direction = Vector3.up;
 
-        [Inject]
-        public void Initialize()
+        void Start()
         {
             Rigidbody rb = GetComponent<Rigidbody>();
 
             rb.velocity = Direction*(Speed/rb.mass);
         }
-
     }
 }
