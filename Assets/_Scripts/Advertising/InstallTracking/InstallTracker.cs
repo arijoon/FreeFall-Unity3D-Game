@@ -39,7 +39,7 @@ namespace _Scripts.Advertising.InstallTracking
                 Tune.MeasureSession();
             }
         }
-    }
 
 #endif
     }
+}
