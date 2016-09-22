@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using GenericExtensions.Interfaces;
 using UnityEngine;
 
@@ -8,14 +9,20 @@ namespace GenericExtensions.Managers
     {
         public void DeactivateAfter(GameObject obj, WaitForSeconds wait)
         {
-            StartCoroutine(Deactivate(obj, wait));
+            RunAfter(() => obj.SetActive(false), wait);
         }
 
-        private IEnumerator Deactivate(GameObject obj, WaitForSeconds wait)
+        public void RunAfter(Action action, WaitForSeconds wait)
+        {
+            StartCoroutine(RunWithDelay(action, wait));
+        }
+
+        private IEnumerator RunWithDelay(Action action, WaitForSeconds wait)
         {
             yield return wait;
 
-            obj.SetActive(false);
+            action();
         }
+
     }
 }

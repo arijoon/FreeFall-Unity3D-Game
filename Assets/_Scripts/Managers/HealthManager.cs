@@ -50,7 +50,7 @@ namespace _Scripts.Managers
 
             if (Health < 0)
             {
-                _gm.GameOver();
+                //_gm.GameOver();
             }
         }
 

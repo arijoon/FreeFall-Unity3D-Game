@@ -1,6 +1,7 @@
 ﻿using System;
 using GenericExtensions;
 using GenericExtensions.Behaviours;
+using GenericExtensions.Interfaces;
 using UnityEngine;
 using Zenject;
 using Zenject.Asteroids;
@@ -19,8 +20,17 @@ namespace _Scripts.Managers
         public float ClickForce = 20f;
         public float MoveLimit = 1f;
         public float MoveSpeed = 10f;
+        public float ImpactDistance = 5f;
+        public float MinImpactDistance = 2f;
+
+        public float Tilt = 5f;
+
+        [Space(10)]
+        public Animator Animator;
+        public LayerMask ObstacleLayerMask;
 
         private IInputAxis _inputAxis;
+        private ITaskManager _tm;
         private Settings _settings;
         private Rigidbody _rb;
 
@@ -29,11 +39,14 @@ namespace _Scripts.Managers
         private Vector3 _targetDrag;
         private bool _shouldDrag;
 
+        private bool isImpacting;
+
         [Inject]
-        public void Initialize(IInputAxis input, Settings settings)
+        public void Initialize(IInputAxis input, ITaskManager tm, Settings settings)
         {
             _inputAxis = input;
             _settings = settings;
+            _tm = tm;
             _targetDrag = transform.position;
 
             _rb = GetComponent<Rigidbody>();
@@ -79,11 +92,13 @@ namespace _Scripts.Managers
         void FixedUpdate()
         {
             HandleDrag();
+            SetTilt();
         }
 
         void Update()
         {
             KeepInBoundary();
+            CheckForImpact();
 
             if(transform.position.y < 0)
                 transform.SetY(0);
@@ -98,12 +113,6 @@ namespace _Scripts.Managers
             }
         }
             
-        private void ClearForce()
-        {
-            _rb.angularVelocity = Vector3.zero;
-            _rb.velocity = Vector3.zero;
-        }
-
         private void KeepInBoundary()
         {
             if (_settings.Boundary.IsNotInHorizontalBound(transform.position))
@@ -113,13 +122,59 @@ namespace _Scripts.Managers
             }
         }
 
+        private void CheckForImpact()
+        {
+            RaycastHit hit;
+
+            foreach (var direction in _impactDirections)
+            {
+                Debug.DrawRay(transform.position, direction, Color.red, 1f);
+                var ray = new Ray(transform.position, direction);
+
+                if (Physics.Raycast(ray,out hit, ImpactDistance, ObstacleLayerMask))
+                {
+                    if(hit.distance < MinImpactDistance) continue;
+
+                    bool isPlaying = Animator.GetBool(Triggers.Player.Impact);
+
+                    if (!isPlaying && !isImpacting)
+                    {
+                        Animator.SetTrigger(Triggers.Player.Impact);
+                        isImpacting = true;
+                        _tm.RunAfter(() => isImpacting = false, new WaitForSeconds(1f));
+                    }
+                }
+                
+            }
+        }
+
         private void HandleDrag()
         {
             var currentDir = _targetDrag - transform.position;
 
             if (currentDir.x == 0 || currentDir.x.Direction() != _dragDir.x.Direction()) return;
 
-            _rb.MovePosition(transform.position + _dragDir * Time.fixedDeltaTime * MoveSpeed);
+            Vector3 velocity = _rb.velocity;
+            Vector3 dest =  Vector3.SmoothDamp(transform.position, _targetDrag, ref velocity, .2f);
+
+            _rb.velocity = velocity;
+            //_rb.MovePosition(dest); // Use if Player isKinematic
+
+            Animator.SetTrigger(Triggers.Player.Move);
         }
+
+        private void SetTilt()
+        {
+            _rb.rotation = Quaternion.Euler(0f, 0f, _rb.velocity.x * (-Tilt));
+        }
+
+        #region caches variables
+        readonly Vector3[] _impactDirections = new Vector3[]
+        {
+            Vector3.down ,
+            new Vector3(0.4f, -0.9f, 0).normalized, 
+            new Vector3(-0.4f, -0.9f, 0).normalized, 
+        };
+        #endregion
     }
 }
