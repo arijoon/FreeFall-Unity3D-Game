@@ -2,7 +2,6 @@
 using System.Collections;
 using GenericExtensions;
 using GenericExtensions.Events;
-using GenericExtensions.Factories;
 using GenericExtensions.Factories.Interfaces;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -60,6 +59,17 @@ namespace _Scripts.Managers
 
             _inputAxis.OnReset += OnReset;
             _scoreSignal.Event += OnAddScore;
+
+            Pause = false;
+            Invoke("Debugging", 1f);
+            PlayerPrefs.DeleteAll();
+        }
+
+        private void Debugging()
+        {
+            PlayerPrefs.DeleteAll();
+            Score = 500;
+            GameOver();
         }
 
         #region event handlers
@@ -71,6 +81,8 @@ namespace _Scripts.Managers
 
         void OnAddScore(int addition)
         {
+            if (Pause) return;
+
             Score += addition;
             UpdateUi();
         }
@@ -130,8 +142,9 @@ namespace _Scripts.Managers
 
         public void GameOver()
         {
+            Pause = true;
             SetHighestScore();
-            Reset();
+            OnLevelFinished.SafeCall(this);
         }
 
         public void BackToMainMenu()

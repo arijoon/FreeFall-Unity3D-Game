@@ -41,6 +41,8 @@ namespace _Scripts.Managers
         #region Handlers 
         void OnDamageTaken(float damage)
         {
+            if(_gm.Pause) return;
+
             Health -= damage;
 
             StopCoroutine(_blinker);
@@ -48,9 +50,9 @@ namespace _Scripts.Managers
             _blinker = BlinkHeart(HealthSettings.BlinksPerHit);
             StartCoroutine(_blinker);
 
-            if (Health < 0)
+            if (Health <= 0)
             {
-                //_gm.GameOver();
+                _gm.GameOver();
             }
         }
 
