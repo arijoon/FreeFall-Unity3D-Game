@@ -14,7 +14,7 @@ namespace GenericExtensions.Behaviours.ParticleSystems
         private ParticleSystem _ps;
 
         [Inject]
-        public void Initialize(Settings settings)
+        public void Initialize()
         {
             _ps = GetComponent<ParticleSystem>();
 

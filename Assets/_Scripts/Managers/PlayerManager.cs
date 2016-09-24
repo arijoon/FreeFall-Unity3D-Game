@@ -66,6 +66,7 @@ namespace _Scripts.Managers
                 var newX = Mathf.Clamp(_targetDrag.x, _settings.Boundary.MinX, _settings.Boundary.MaxX);
                 _targetDrag = _targetDrag.WithX(newX);
             }
+            Animator.SetTrigger(Triggers.Player.Move);
         }
 
         void OnDrag(object sender, DragEventArgs args)
@@ -78,6 +79,7 @@ namespace _Scripts.Managers
                 var newX = Mathf.Clamp(_targetDrag.x, _settings.Boundary.MinX, _settings.Boundary.MaxX);
                 _targetDrag = _targetDrag.WithX(newX);
             }
+            Animator.SetTrigger(Triggers.Player.Move);
         }
 
         void OnTriggerEnter(Collider other)
@@ -160,7 +162,6 @@ namespace _Scripts.Managers
             _rb.velocity = velocity;
             //_rb.MovePosition(dest); // Use if Player isKinematic
 
-            Animator.SetTrigger(Triggers.Player.Move);
         }
 
         private void SetTilt()
