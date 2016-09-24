@@ -21,6 +21,9 @@ namespace _Scripts.Managers
 
         private IEnumerator _blinker;
         private WaitForSeconds _blinkWait;
+        private WaitForSeconds _regenerationWait;
+
+        private object _lock = new System.Object();
 
         [Inject]
         public void Initialize(DamageTakenSignal damageTakenSig, IGameManager gm)
@@ -34,8 +37,11 @@ namespace _Scripts.Managers
             damageTakenSig.Event += OnDamageTaken;
 
             _blinkWait = new WaitForSeconds(HealthSettings.BlinkWait);
+            _regenerationWait = new WaitForSeconds(1f);
 
             HealthSettings.HealthImage.color = Color.Lerp(HealthSettings.MinColor, HealthSettings.MaxColor, Health);
+
+            StartCoroutine(Regenerate());
         }
 
         #region Handlers 
@@ -43,7 +49,10 @@ namespace _Scripts.Managers
         {
             if(_gm.Pause) return;
 
-            Health -= damage;
+            lock (_lock)
+            {
+                Health -= damage;
+            }
 
             StopCoroutine(_blinker);
 
@@ -60,15 +69,22 @@ namespace _Scripts.Managers
 
         void Update()
         {
-            float normalHealth = Health/HealthSettings.MaxHealth;
+            lock (_lock)
+            {
+                Health = Mathf.Clamp(Health, -1, HealthSettings.MaxHealth);
+            }
+
+            float normalHealth = Health / HealthSettings.MaxHealth;
 
             if (normalHealth != _sliderHealth)
             {
-                _sliderHealth = Mathf.Lerp(_sliderHealth, normalHealth, Time.deltaTime*HealthSettings.LerpSpeed);
-                
+                _sliderHealth = Mathf.Lerp(_sliderHealth, normalHealth, Time.deltaTime * HealthSettings.LerpSpeed);
+
                 HealthSettings.HealthImage.fillAmount = Mathf.Max(_sliderHealth, 0);
-                HealthSettings.HealthImage.color = Color.Lerp(HealthSettings.MinColor, HealthSettings.MaxColor, _sliderHealth);
-                HealthSettings.HealthText.text = string.Format(Labels.Health, Mathf.Ceil(_sliderHealth*HealthSettings.MaxHealth));
+                HealthSettings.HealthImage.color = Color.Lerp(HealthSettings.MinColor, HealthSettings.MaxColor,
+                    _sliderHealth);
+                HealthSettings.HealthText.text = string.Format(Labels.Health,
+                    Mathf.Ceil(_sliderHealth * HealthSettings.MaxHealth));
             }
         }
 
@@ -88,9 +104,24 @@ namespace _Scripts.Managers
                 image.color = backUpColor;
                 yield return _blinkWait;
             }
-
         }
 
+        private IEnumerator Regenerate()
+        {
+            while (true)
+            {
+                yield return _regenerationWait;
+
+                if (_gm.Pause) yield break;
+
+                if (Health >= HealthSettings.MaxHealth) continue;
+
+                lock (_lock)
+                {
+                    Health += HealthSettings.RegenerationRate;
+                }
+            }
+        }
 
         [Serializable]
         public class Settings
@@ -100,11 +131,13 @@ namespace _Scripts.Managers
 
             public uint BlinksPerHit;
 
+            [Space(15)]
             public float StartHealth = 100f;
             public float MaxHealth = 100f;
             public float LerpSpeed = 5f;
             public float BlinkWait = 0.1f;
             public float BlinkAlpha = 0.4f;
+            public float RegenerationRate = 1f;
 
             public Image HealthImage;
             public Image HeartImage;

@@ -105,7 +105,7 @@ namespace _Scripts.Managers
 
         void FixedUpdate()
         {
-            if (_gm.Pause) return;
+            //if (_gm.Pause) return;
 
             HandleDrag();
             SetTilt();
@@ -115,7 +115,6 @@ namespace _Scripts.Managers
         {
             if (_gm.Pause) return;
 
-            HandleDrag();
             KeepInBoundary();
             CheckForImpact();
 
@@ -187,11 +186,11 @@ namespace _Scripts.Managers
             _rb.rotation = Quaternion.Euler(0f, 0f, _rb.velocity.x * (-Tilt));
         }
 
-        #region caches variables
+        #region cached variables
         readonly Vector3[] _impactDirections = new Vector3[]
         {
             Vector3.down ,
-            new Vector3(0.4f, -0.9f, 0).normalized, 
+            new Vector3(0.4f, -0.9f, 0).normalized, // 20 degrees angle
             new Vector3(-0.4f, -0.9f, 0).normalized, 
         };
         #endregion

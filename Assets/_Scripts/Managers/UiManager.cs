@@ -32,7 +32,7 @@ namespace _Scripts.Managers
         IGameManager _gm;
 
         [Inject]
-        void Init(IGameManager gm)
+        void Initialize(IGameManager gm)
         {
             _gm = gm;
             _gm.OnUpdateUi += UpdateUi;
@@ -99,7 +99,7 @@ namespace _Scripts.Managers
             }
 
             _score = Mathf.SmoothDamp(_score, _gm.Score,ref _scoreVel, ScoreCounterTime);
-            OverviewScoreText.text = string.Format("Bonus: ${0}", Math.Ceiling(_score));
+            OverviewScoreText.text = string.Format(Labels.OverviewBonus, Math.Ceiling(_score));
         }
 
         private void NewHighScore()

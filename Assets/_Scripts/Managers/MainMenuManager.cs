@@ -6,6 +6,7 @@ namespace _Scripts.Managers
 {
     public class MainMenuManager : MonoBehaviour
     {
+        public GameObject MainMenuContainer;
 
         public void LoadGame()
         {
@@ -20,6 +21,11 @@ namespace _Scripts.Managers
 #else
             Application.Quit();
 #endif
+        }
+
+        public void ToggleVisibility()
+        {
+            MainMenuContainer.SetActive(!MainMenuContainer.activeSelf);
         }
 
     }
