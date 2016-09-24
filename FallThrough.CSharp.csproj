@@ -80,6 +80,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\GenericExtensions\Behaviours\BulkSetters\FontSetter.cs" />
     <Compile Include="Assets\GenericExtensions\Behaviours\CleanOnExit.cs" />
     <Compile Include="Assets\GenericExtensions\Behaviours\HasAction.cs" />
     <Compile Include="Assets\GenericExtensions\Behaviours\MovementAndPull\Gravity.cs" />

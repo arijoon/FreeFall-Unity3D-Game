@@ -5,11 +5,10 @@ using GenericExtensions.Interfaces;
 using UnityEngine;
 using Zenject;
 using Zenject.Asteroids;
-using _Scripts.Behaviours;
 using _Scripts.Definitions;
 using _Scripts.Definitions.ConstantClasses;
 using _Scripts.Definitions.CustomEventArgs;
-using _Scripts.Definitions.Signals;
+using _Scripts.Definitions.Interfaces;
 using _Scripts.Services.Interfaces;
 
 namespace _Scripts.Managers
@@ -31,6 +30,7 @@ namespace _Scripts.Managers
 
         private IInputAxis _inputAxis;
         private ITaskManager _tm;
+        private IGameManager _gm;
         private Settings _settings;
         private Rigidbody _rb;
 
@@ -42,17 +42,22 @@ namespace _Scripts.Managers
         private bool isImpacting;
 
         [Inject]
-        public void Initialize(IInputAxis input, ITaskManager tm, Settings settings)
+        public void Initialize(IInputAxis input,
+            ITaskManager tm,
+            IGameManager gm,
+            Settings settings)
         {
             _inputAxis = input;
             _settings = settings;
             _tm = tm;
+            _gm = gm;
             _targetDrag = transform.position;
 
             _rb = GetComponent<Rigidbody>();
 
             _inputAxis.OnMouseClick += OnClick;
             _inputAxis.OnMouseDrag += OnDrag;
+            _gm.OnLevelFinished += OnLevelFinished;
         }
 
         #region eventHandlers
@@ -82,6 +87,13 @@ namespace _Scripts.Managers
             Animator.SetTrigger(Triggers.Player.Move);
         }
 
+        void OnLevelFinished(object sender, EventArgs args)
+        {
+            _inputAxis.OnMouseClick -= OnClick;
+            _inputAxis.OnMouseDrag -= OnDrag;
+            Animator.SetTrigger(Triggers.Player.Dead);
+        }
+
         void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag(Tags.Platform) || other.CompareTag(Tags.Pickup))
@@ -93,12 +105,17 @@ namespace _Scripts.Managers
 
         void FixedUpdate()
         {
+            if (_gm.Pause) return;
+
             HandleDrag();
             SetTilt();
         }
 
         void Update()
         {
+            if (_gm.Pause) return;
+
+            HandleDrag();
             KeepInBoundary();
             CheckForImpact();
 
@@ -112,6 +129,7 @@ namespace _Scripts.Managers
             {
                 _inputAxis.OnMouseClick -= OnClick;
                 _inputAxis.OnMouseDrag -= OnDrag;
+                _gm.OnLevelFinished -= OnLevelFinished;
             }
         }
             

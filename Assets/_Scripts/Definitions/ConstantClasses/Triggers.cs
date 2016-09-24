@@ -8,6 +8,7 @@ namespace _Scripts.Definitions.ConstantClasses
         {
             public const string Move = "Move";
             public const string Impact = "Impact";
+            public const string Dead = "Dead";
         }
     }
 }

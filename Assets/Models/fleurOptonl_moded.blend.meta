@@ -179,6 +179,7 @@ ModelImporter:
     7400000: Idle
     7400002: Impact
     7400004: Move
+    7400006: Dead
     9500000: //RootNode
     13700000: capelli_001
     13700002: Character
@@ -613,6 +614,198 @@ ModelImporter:
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Master
+        weight: 1
+      - path: Armature/Master/EyesCtrl
+        weight: 0
+      - path: Armature/Master/FootCtrl_L
+        weight: 0
+      - path: Armature/Master/FootCtrl_L/FootRollCtrl_L
+        weight: 0
+      - path: Armature/Master/FootCtrl_L/HillRoll_L
+        weight: 0
+      - path: Armature/Master/FootCtrl_L/HillRoll_L/ToeRoll_L
+        weight: 0
+      - path: Armature/Master/FootCtrl_L/HillRoll_L/ToeRoll_L/Foot_IK_L
+        weight: 0
+      - path: Armature/Master/FootCtrl_L/KneeCtrl_L
+        weight: 0
+      - path: Armature/Master/FootCtrl_R
+        weight: 0
+      - path: Armature/Master/FootCtrl_R/FootRollCtrl_R
+        weight: 0
+      - path: Armature/Master/FootCtrl_R/HillRoll_R
+        weight: 0
+      - path: Armature/Master/FootCtrl_R/HillRoll_R/ToeRoll_R
+        weight: 0
+      - path: Armature/Master/FootCtrl_R/HillRoll_R/ToeRoll_R/Foot_IK_R
+        weight: 0
+      - path: Armature/Master/FootCtrl_R/KneeCtrl_R
+        weight: 0
+      - path: Armature/Master/HipsCtrl
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Breast_L
+        weight: 0
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Breast_R
+        weight: 0
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_L
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_L/UpArm_L
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_L/UpArm_L/LowArm_L
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_L/UpArm_L/LowArm_L/Hand_L
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_L/UpArm_L/LowArm_L/Hand_L/Mid1_L
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_L/UpArm_L/LowArm_L/Hand_L/Mid1_L/Mid2_L
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_L/UpArm_L/LowArm_L/Hand_L/Mid1_L/Mid2_L/Mid3_L
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_L/UpArm_L/LowArm_L/Hand_L/Pinky1_L
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_L/UpArm_L/LowArm_L/Hand_L/Pinky1_L/Pinky2_L
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_L/UpArm_L/LowArm_L/Hand_L/Pinky1_L/Pinky2_L/Pinky3_L
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_L/UpArm_L/LowArm_L/Hand_L/Point1_L
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_L/UpArm_L/LowArm_L/Hand_L/Point1_L/Point2_L
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_L/UpArm_L/LowArm_L/Hand_L/Point1_L/Point2_L/Point3_L
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_L/UpArm_L/LowArm_L/Hand_L/Ring1_L
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_L/UpArm_L/LowArm_L/Hand_L/Ring1_L/Ring2_L
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_L/UpArm_L/LowArm_L/Hand_L/Ring1_L/Ring2_L/Ring3_L
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_L/UpArm_L/LowArm_L/Hand_L/Thumb1_L
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_L/UpArm_L/LowArm_L/Hand_L/Thumb1_L/Thumb2_L
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_L/UpArm_L/LowArm_L/Hand_L/Thumb1_L/Thumb2_L/Thumb3_L
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_R
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_R/UpArm_R
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_R/UpArm_R/LowArm_R
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_R/UpArm_R/LowArm_R/Hand_R
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_R/UpArm_R/LowArm_R/Hand_R/Mid1_R
+        weight: 0
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_R/UpArm_R/LowArm_R/Hand_R/Mid1_R/Mid2_R
+        weight: 0
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_R/UpArm_R/LowArm_R/Hand_R/Mid1_R/Mid2_R/Mid3_R
+        weight: 0
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_R/UpArm_R/LowArm_R/Hand_R/Pinky1_R
+        weight: 0
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_R/UpArm_R/LowArm_R/Hand_R/Pinky1_R/Pinky2_R
+        weight: 0
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_R/UpArm_R/LowArm_R/Hand_R/Pinky1_R/Pinky2_R/Pinky3_R
+        weight: 0
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_R/UpArm_R/LowArm_R/Hand_R/Point1_R
+        weight: 0
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_R/UpArm_R/LowArm_R/Hand_R/Point1_R/Point2_R
+        weight: 0
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_R/UpArm_R/LowArm_R/Hand_R/Point1_R/Point2_R/Point3_R
+        weight: 0
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_R/UpArm_R/LowArm_R/Hand_R/Ring1_R
+        weight: 0
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_R/UpArm_R/LowArm_R/Hand_R/Ring1_R/Ring2_R
+        weight: 0
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_R/UpArm_R/LowArm_R/Hand_R/Ring1_R/Ring2_R/Ring3_R
+        weight: 0
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_R/UpArm_R/LowArm_R/Hand_R/Thumb1_R
+        weight: 0
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_R/UpArm_R/LowArm_R/Hand_R/Thumb1_R/Thumb2_R
+        weight: 0
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Clavicle_R/UpArm_R/LowArm_R/Hand_R/Thumb1_R/Thumb2_R/Thumb3_R
+        weight: 0
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Neck
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Neck/Head
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Neck/Head/Eye_L_0
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Neck/Head/Eye_R_0
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Neck/Head/Hair1
+        weight: 0
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Neck/Head/Hair1/Hair2
+        weight: 0
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Neck/Head/Hair1/Hair2/Hair3
+        weight: 0
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Neck/Head/Hair1/Hair2/Hair3/Hair4
+        weight: 0
+      - path: Armature/Master/HipsCtrl/Root/Spine_001/Spine_002/Neck/Head/Hair1/Hair2/Hair3/Hair4/Hair5
+        weight: 0
+      - path: Armature/Master/HipsCtrl/Root/UpLeg_L
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/UpLeg_L/LowLeg_L
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/UpLeg_L/LowLeg_L/Foot_L
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/UpLeg_L/LowLeg_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/UpLeg_R
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/UpLeg_R/LowLeg_R
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/UpLeg_R/LowLeg_R/Foot_R
+        weight: 1
+      - path: Armature/Master/HipsCtrl/Root/UpLeg_R/LowLeg_R/Foot_R/Toe_R
+        weight: 1
+      - path: capelli_001
+        weight: 0
+      - path: Character
+        weight: 0
+      - path: Eye_L
+        weight: 0
+      - path: Eye_R
+        weight: 0
+      - path: Plane_003
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Dead
+      takeName: ArmatureAction
+      firstFrame: 150
+      lastFrame: 181
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0

@@ -1,10 +1,6 @@
-﻿using GenericExtensions.Factories;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using Zenject;
 using _Scripts.Definitions.ConstantClasses;
-using _Scripts.Services;
 
 namespace _Scripts.Managers
 {
