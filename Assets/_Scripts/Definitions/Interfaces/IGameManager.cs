@@ -7,9 +7,9 @@ namespace _Scripts.Definitions.Interfaces
     {
         int Score { get; }
 
-        float Health { get; }
-
         bool Pause { get; }
+
+        float TimeTaken { get; }
 
         void Reset();
 

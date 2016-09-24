@@ -1,4 +1,5 @@
 ﻿using System;
+using GenericExtensions.Behaviours.Blinkers;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -10,7 +11,9 @@ namespace _Scripts.Managers
     public class UiManager : MonoBehaviour
     {
         public Text BonusText;
+        public Text TimeText;
         public Text OverviewScoreText;
+        public Text OverviewTimeText;
         public Image BackgroundImage;
 
         [Space(10)]
@@ -45,13 +48,14 @@ namespace _Scripts.Managers
         #region event handlers
         void UpdateUi(object sender, EventArgs args)
         {
-            UpdateScore();
+            SetScore();
         }
 
         void OnLevelFinished(object sender, EventArgs args)
         {
             GameOverWindow.SetActive(true);
             InfoGameObject.SetActive(true);
+            DisplayFinalTime();
 
             _levelFinished = true;
         }
@@ -68,14 +72,24 @@ namespace _Scripts.Managers
 
             if (_levelFinished)
             {
-                DisplayScore();
+                DisplayFinalScore();
+            }
+            else
+            {
+                UpdateTime();
             }
         }
 
-        private void UpdateScore()
+        private void SetScore()
         {
             string text = string.Format(Labels.Bonus, _gm.Score);
             BonusText.text = text;
+        }
+
+        private void UpdateTime()
+        {
+            string text = string.Format(Labels.Time, Time.timeSinceLevelLoad.ToString("F2"));
+            TimeText.text = text;
         }
 
         private void SetObjectsState()
@@ -85,7 +99,7 @@ namespace _Scripts.Managers
             GameOverWindow.SetActive(false);
         }
 
-        private void DisplayScore()
+        private void DisplayFinalScore()
         {
             if ((int) Math.Ceiling(_score) == _gm.Score)
             {
@@ -100,6 +114,15 @@ namespace _Scripts.Managers
 
             _score = Mathf.SmoothDamp(_score, _gm.Score,ref _scoreVel, ScoreCounterTime);
             OverviewScoreText.text = string.Format(Labels.OverviewBonus, Math.Ceiling(_score));
+        }
+
+        private void DisplayFinalTime()
+        {
+            string text = string.Format(Labels.OverviewTime, _gm.TimeTaken.ToString("F2"));
+            OverviewTimeText.text = text;
+
+            OverviewTimeText.gameObject.GetComponent<IBlinker>().Blink();
+
         }
 
         private void NewHighScore()

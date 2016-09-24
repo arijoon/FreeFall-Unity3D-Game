@@ -105,8 +105,6 @@ namespace _Scripts.Managers
 
         void FixedUpdate()
         {
-            //if (_gm.Pause) return;
-
             HandleDrag();
             SetTilt();
         }

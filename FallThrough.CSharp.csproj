@@ -80,6 +80,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\GenericExtensions\Behaviours\Blinkers\IBlinker.cs" />
+    <Compile Include="Assets\GenericExtensions\Behaviours\Blinkers\ImageBlinker.cs" />
+    <Compile Include="Assets\GenericExtensions\Behaviours\Blinkers\TextBlinker.cs" />
     <Compile Include="Assets\GenericExtensions\Behaviours\BulkSetters\FontSetter.cs" />
     <Compile Include="Assets\GenericExtensions\Behaviours\CleanOnExit.cs" />
     <Compile Include="Assets\GenericExtensions\Behaviours\HasAction.cs" />

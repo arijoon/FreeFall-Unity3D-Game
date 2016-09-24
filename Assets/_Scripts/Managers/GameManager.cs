@@ -27,9 +27,8 @@ namespace _Scripts.Managers
         public float PickupChance = .2f;
 
         public int Score { get; private set; }
+        public float TimeTaken { get; private set; }
         public bool Pause { get; private set; }
-
-        public float Health { get; private set; }
 
         [Inject] IInputAxis _inputAxis;
         [Inject] IObjectFactory<PlatformFactory> _platformFactory;
@@ -62,7 +61,7 @@ namespace _Scripts.Managers
 
             Pause = false;
             //Invoke("Debugging", 1f);
-            PlayerPrefs.DeleteAll();
+            PlayerPrefs.DeleteAll(); // TODO debug
         }
 
         private void Debugging()
@@ -143,6 +142,9 @@ namespace _Scripts.Managers
         public void GameOver()
         {
             Pause = true;
+            TimeTaken = Time.timeSinceLevelLoad;
+
+            SetFinalScore();
             SetHighestScore();
             OnLevelFinished.SafeCall(this);
         }
@@ -155,6 +157,11 @@ namespace _Scripts.Managers
         private void UpdateUi()
         {
             OnUpdateUi.SafeCall(this);
+        }
+
+        private void SetFinalScore()
+        {
+            Score = Mathf.CeilToInt(TimeTaken*Score);
         }
 
         private void SetHighestScore()
