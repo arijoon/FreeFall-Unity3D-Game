@@ -22,7 +22,7 @@ namespace _Scripts.Managers
         public float ImpactDistance = 5f;
         public float MinImpactDistance = 2f;
 
-        public float Tilt = 5f;
+        public Vector3 Tilt;
 
         [Space(10)]
         public Animator Animator;
@@ -181,7 +181,8 @@ namespace _Scripts.Managers
 
         private void SetTilt()
         {
-            _rb.rotation = Quaternion.Euler(0f, 0f, _rb.velocity.x * (-Tilt));
+            var vel = _rb.velocity.x;
+            _rb.rotation = Quaternion.Euler(-Mathf.Abs(vel)*Tilt.x, -vel * Tilt.y , -vel * Tilt.z);
         }
 
         #region cached variables
