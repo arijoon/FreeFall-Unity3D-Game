@@ -4,7 +4,6 @@ using GenericExtensions.Behaviours;
 using GenericExtensions.Interfaces;
 using UnityEngine;
 using Zenject;
-using Zenject.Asteroids;
 using _Scripts.Definitions;
 using _Scripts.Definitions.ConstantClasses;
 using _Scripts.Definitions.CustomEventArgs;
@@ -117,7 +116,7 @@ namespace _Scripts.Managers
             CheckForImpact();
 
             if(transform.position.y < 0)
-                transform.SetY(0);
+                transform.position = transform.position.WithY(0);
         }
 
         void OnDestroy()

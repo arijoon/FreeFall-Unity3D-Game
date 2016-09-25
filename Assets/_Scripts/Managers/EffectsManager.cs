@@ -51,7 +51,6 @@ namespace _Scripts.Managers
 
                 if (Random.Range(0, 1f) < NightChance)
                 {
-                    Debug.Log(Random.Range(0, 1f));
                     _targetIntensity = 0;
 
                     yield return _nightDuration;

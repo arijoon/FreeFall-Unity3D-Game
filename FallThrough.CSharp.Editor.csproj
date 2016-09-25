@@ -163,10 +163,6 @@
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
     <None Include="Assets\Textures\texturepackA\shaders\bumpedspecmap.shader" />
     <None Include="Assets\Zenject\LICENSE.txt" />
-    <None Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Media\Fonts\Space.txt" />
-    <None Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Media\Imported\Shaders\AddSmooth_Layer.shader" />
-    <None Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Media\Imported\Shaders\Add_Layer.shader" />
-    <None Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Media\Imported\Shaders\Particle Alpha Blend_IgnoreFog.shader" />
     <None Include="Assets\Zenject\Version.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />

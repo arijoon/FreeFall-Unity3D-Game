@@ -1,5 +1,7 @@
 ﻿using GenericExtensions.Factories;
 using Zenject;
+using _Scripts.Services;
+using _Scripts.Services.Interfaces;
 
 namespace _Scripts._AppStart
 {
@@ -12,7 +14,6 @@ namespace _Scripts._AppStart
         {
             Container.Bind<PrefabFactory>()
                 .AsSingle();
-
         }
     }
 }

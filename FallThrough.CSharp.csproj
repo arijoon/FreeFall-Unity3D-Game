@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>5.4.1f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -169,65 +167,6 @@
     <Compile Include="Assets\Zenject\OptionalExtras\CommandsAndSignals\Command\Command.cs" />
     <Compile Include="Assets\Zenject\OptionalExtras\CommandsAndSignals\Signal\Signal.cs" />
     <Compile Include="Assets\Zenject\OptionalExtras\CommandsAndSignals\Signal\SignalExtensions.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Scripts\Asteroid\Asteroid.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Scripts\Asteroid\AsteroidManager.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Scripts\Installers\GameDecoratorInstaller.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Scripts\Installers\GameInstaller.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Scripts\Installers\GameSettingsInstaller.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Scripts\Main\GameController.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Scripts\Main\GameSignals.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Scripts\Misc\AudioHandler.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Scripts\Misc\GuiHandler.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Scripts\Misc\LevelHelper.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Scripts\Misc\TilingBackground.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Scripts\Ship\Ship.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Scripts\Ship\ShipStateFactory.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Scripts\Ship\States\ShipState.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Scripts\Ship\States\ShipStateDead.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Scripts\Ship\States\ShipStateMoving.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Scripts\Ship\States\ShipStateWaitingToStart.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Scripts\Util\UnityExtensionMethods.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Enemy\EnemyCollisionDetector.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Enemy\EnemyCollisionHandler.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Enemy\EnemyFacade.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Enemy\EnemyHealthWatcher.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Enemy\EnemyModel.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Enemy\EnemyRegistry.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Enemy\EnemyRotationHandler.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Enemy\EnemySignals.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Enemy\EnemyStateCommon.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Enemy\EnemyStateFactory.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Enemy\EnemyStateManager.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Enemy\EnemyTunables.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Enemy\States\EnemyStateAttack.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Enemy\States\EnemyStateFollow.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Enemy\States\EnemyStateIdle.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Enemy\States\EnemyStateRunAway.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Installers\EnemyInstaller.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Installers\GameInstaller.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Installers\GameSettingsInstaller.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Installers\PlayerInstaller.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Misc\AudioPlayer.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Misc\Bullet.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Misc\CameraHandler.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Misc\ControlsDisplay.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Misc\EnemySpawner.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Misc\Explosion.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Misc\GameDifficultyHandler.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Misc\GameRestartHandler.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Misc\GameSignals.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Player\PlayerBulletHitHandler.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Player\PlayerCollisionDetector.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Player\PlayerDirectionHandler.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Player\PlayerFacade.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Player\PlayerHealthDisplay.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Player\PlayerHealthWatcher.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Player\PlayerInputEvents.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Player\PlayerInputHandler.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Player\PlayerModel.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Player\PlayerMoveHandler.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Player\PlayerShootHandler.cs" />
-    <Compile Include="Assets\Zenject\OptionalExtras\SampleGame2 (Advanced)\Scripts\Player\PlayerSignals.cs" />
     <Compile Include="Assets\Zenject\Source\Binding\BindInfo\BindInfo.cs" />
     <Compile Include="Assets\Zenject\Source\Binding\BindInfo\GameObjectBindInfo.cs" />
     <Compile Include="Assets\Zenject\Source\Binding\Binders\ArgumentsBinder.cs" />
@@ -411,6 +350,7 @@
     <Compile Include="Assets\_Scripts\Backend\Interfaces\IUserService.cs" />
     <Compile Include="Assets\_Scripts\Backend\Models\User.cs" />
     <Compile Include="Assets\_Scripts\Backend\Services\LeaderBoard.cs" />
+    <Compile Include="Assets\_Scripts\Backend\Services\UserService.cs" />
     <Compile Include="Assets\_Scripts\Behaviours\Actions\HasDamage.cs" />
     <Compile Include="Assets\_Scripts\Behaviours\Actions\HasScore.cs" />
     <Compile Include="Assets\_Scripts\Behaviours\ExplodeOnContact.cs" />
@@ -444,7 +384,10 @@
     <Compile Include="Assets\_Scripts\Managers\UiManager.cs" />
     <Compile Include="Assets\_Scripts\Services\AssetsReader.cs" />
     <Compile Include="Assets\_Scripts\Services\Interfaces\IInputAxis.cs" />
+    <Compile Include="Assets\_Scripts\Services\Interfaces\IPersistentServices.cs" />
     <Compile Include="Assets\_Scripts\Services\MouseInputAxis.cs" />
+    <Compile Include="Assets\_Scripts\Services\PersistentService.cs" />
+    <Compile Include="Assets\_Scripts\_AppStart\BaseInstaller.cs" />
     <Compile Include="Assets\_Scripts\_AppStart\CommonInstaller.cs" />
     <Compile Include="Assets\_Scripts\_AppStart\MainInstaller.cs" />
     <Compile Include="Assets\_Scripts\_AppStart\PrefabInstaller.cs" />
@@ -464,12 +407,7 @@
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
     <None Include="Assets\Textures\texturepackA\shaders\bumpedspecmap.shader" />
     <None Include="Assets\Zenject\LICENSE.txt" />
-    <None Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Media\Fonts\Space.txt" />
-    <None Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Media\Imported\Shaders\AddSmooth_Layer.shader" />
-    <None Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Media\Imported\Shaders\Add_Layer.shader" />
-    <None Include="Assets\Zenject\OptionalExtras\SampleGame1 (Beginner)\Media\Imported\Shaders\Particle Alpha Blend_IgnoreFog.shader" />
     <None Include="Assets\Zenject\Version.txt" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
