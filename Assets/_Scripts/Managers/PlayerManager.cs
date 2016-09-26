@@ -38,6 +38,8 @@ namespace _Scripts.Managers
         private Vector3 _targetDrag;
         private bool _shouldDrag;
 
+        private WaitForSeconds _impactWait;
+
         private bool isImpacting;
 
         [Inject]
@@ -57,6 +59,8 @@ namespace _Scripts.Managers
             _inputAxis.OnMouseClick += OnClick;
             _inputAxis.OnMouseDrag += OnDrag;
             _gm.OnLevelFinished += OnLevelFinished;
+
+            _impactWait = new WaitForSeconds(1f);
         }
 
         #region eventHandlers
@@ -95,7 +99,7 @@ namespace _Scripts.Managers
 
         void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag(Tags.Platform) || other.CompareTag(Tags.Pickup))
+            if ((other.CompareTag(Tags.Platform) || other.CompareTag(Tags.Pickup)) && !_gm.Pause)
             {
                 other.gameObject.ExecuteAction();
             }
@@ -115,7 +119,7 @@ namespace _Scripts.Managers
             KeepInBoundary();
             CheckForImpact();
 
-            if(transform.position.y < 0)
+            if (transform.position.y < 0)
                 transform.position = transform.position.WithY(0);
         }
 
@@ -157,7 +161,7 @@ namespace _Scripts.Managers
                     {
                         Animator.SetTrigger(Triggers.Player.Impact);
                         isImpacting = true;
-                        _tm.RunAfter(() => isImpacting = false, new WaitForSeconds(1f));
+                        _tm.RunAfter(() => isImpacting = false, _impactWait);
                     }
                 }
                 
@@ -171,7 +175,8 @@ namespace _Scripts.Managers
             if (currentDir.x == 0 || currentDir.x.Direction() != _dragDir.x.Direction()) return;
 
             Vector3 velocity = _rb.velocity;
-            Vector3 dest =  Vector3.SmoothDamp(transform.position, _targetDrag, ref velocity, .2f);
+            //Vector3 dest = Vector3.SmoothDamp(transform.position, _targetDrag, ref velocity, .2f);
+            Vector3.SmoothDamp(transform.position, _targetDrag, ref velocity, .2f);
 
             _rb.velocity = velocity;
             //_rb.MovePosition(dest); // Use if Player isKinematic

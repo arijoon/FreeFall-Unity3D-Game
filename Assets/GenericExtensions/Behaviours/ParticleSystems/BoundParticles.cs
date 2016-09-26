@@ -8,7 +8,7 @@ namespace GenericExtensions.Behaviours.ParticleSystems
     public class BoundParticles : MonoBehaviour
     {
         public float MaxHeight;
-        public float CleanEvery = 1f;
+        public float CleanEvery = 5f;
 
         private ParticleSystem _ps;
 

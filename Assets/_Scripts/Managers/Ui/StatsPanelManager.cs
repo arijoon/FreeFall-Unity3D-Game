@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using GenericExtensions.Interfaces;
+using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 using _Scripts.Backend.Models;
@@ -9,7 +10,6 @@ namespace _Scripts.Managers.Ui
 {
     public class StatsPanelManager : MonoBehaviour
     {
-        public GameObject Loading;
         public GameObject ContentPanel;
 
         [Space(15)]
@@ -21,17 +21,20 @@ namespace _Scripts.Managers.Ui
         private IPersistentServices _services { get { return PersistentService.Instance; } }
         private LeaderBoardUser UserData;
 
+        private ILoader _loader;
+
         [Inject]
-        void Initialize()
+        void Initialize(ILoader loader)
         {
             DisplayInput.onEndEdit.AddListener(OnDisplayNameChange);
+            _loader = loader;
         }
 
         public void LoadData()
         {
             if(UserData != null) return;
 
-            Loading.SetActive(true);
+            _loader.Loading(true);
 
             ContentPanel.SetActive(false);
 
@@ -53,7 +56,7 @@ namespace _Scripts.Managers.Ui
 
                 _services.LeaderBoard.SyncLocal(data);
 
-                Loading.SetActive(false);
+                _loader.Loading(false);
 
                 ContentPanel.SetActive(true);
             });

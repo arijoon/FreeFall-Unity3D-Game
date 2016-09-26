@@ -23,6 +23,7 @@ namespace _Scripts.Managers
 
         [Space(15)]
         public float ScoreCounterTime = 3f;
+        public int UpdateEvery = 15;
 
         #region Flags
         private bool _levelFinished;
@@ -31,6 +32,8 @@ namespace _Scripts.Managers
         private float _scoreVel;
         private bool _finished;
         #endregion
+
+        private uint _frames;
 
         IGameManager _gm;
 
@@ -76,7 +79,10 @@ namespace _Scripts.Managers
             }
             else
             {
-                UpdateTime();
+                bool isTime = _frames++%UpdateEvery == 0;
+
+                if(isTime)
+                    UpdateTime();
             }
         }
 

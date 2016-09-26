@@ -108,19 +108,19 @@ namespace _Scripts.Managers
         IEnumerator GeneratePlatform()
         {
             var wait = new WaitForSeconds(Mathf.Max(GenerationWait));
-            var waitForPlatform = new WaitUntil(() =>
-                {
-                    if (_lastPlatform == null)
-                        return true;
+            //var waitForPlatform = new WaitUntil(() =>
+            //    {
+            //        if (_lastPlatform == null)
+            //            return true;
 
-                    return _lastPlatform.transform.position.y > _settings.Boundary.MinY - 20;
-                });
+            //        return _lastPlatform.transform.position.y > _settings.Boundary.MinY - 20;
+            //    });
 
             while (true)
             {
                 yield return wait;
 
-                yield return waitForPlatform;
+                //yield return waitForPlatform;
 
                 float randomXSpawn = UnityEngine.Random.Range(_settings.Boundary.MinX, _settings.Boundary.MaxX);
 
@@ -164,7 +164,8 @@ namespace _Scripts.Managers
 
         private void SetHighestScore()
         {
-            PersistentService.Instance.LeaderBoard.RegisterScore(Score);
+            if(PersistentService.Instance != null)
+                PersistentService.Instance.LeaderBoard.RegisterScore(Score);
 
             if (!PlayerPrefs.HasKey(SaveKeys.MaxBonus))
             {
