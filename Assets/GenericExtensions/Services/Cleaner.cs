@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using GenericExtensions.Interfaces;
+﻿using GenericExtensions.Interfaces;
 using UnityEngine;
 
 namespace GenericExtensions.Services

@@ -1,6 +1,4 @@
-﻿using UnityEngine.EventSystems;
-
-namespace _Scripts.Definitions.ConstantClasses
+﻿namespace _Scripts.Definitions.ConstantClasses
 {
     public static class Triggers
     {

@@ -1,7 +1,5 @@
 ﻿using GenericExtensions.Factories;
 using Zenject;
-using _Scripts.Services;
-using _Scripts.Services.Interfaces;
 
 namespace _Scripts._AppStart
 {

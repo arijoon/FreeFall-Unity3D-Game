@@ -3,8 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 using _Scripts.Definitions.ConstantClasses;
-using _Scripts.Services;
-using _Scripts.Services.Interfaces;
 
 #if UNITY_EDITOR
 namespace _Scripts.Debugging

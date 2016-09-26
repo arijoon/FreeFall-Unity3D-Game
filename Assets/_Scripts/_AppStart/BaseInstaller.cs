@@ -1,8 +1,6 @@
 ﻿using Zenject;
 using _Scripts.Backend.Interfaces;
 using _Scripts.Backend.Services;
-using _Scripts.Services;
-using _Scripts.Services.Interfaces;
 
 namespace _Scripts._AppStart
 {

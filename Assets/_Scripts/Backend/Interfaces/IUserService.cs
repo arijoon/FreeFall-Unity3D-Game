@@ -1,5 +1,4 @@
 ﻿using System;
-using GameSparks.Api.Responses;
 using _Scripts.Backend.Models;
 
 namespace _Scripts.Backend.Interfaces

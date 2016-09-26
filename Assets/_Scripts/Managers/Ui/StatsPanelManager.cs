@@ -1,5 +1,4 @@
-﻿using GenericExtensions.Effects;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 using _Scripts.Backend.Models;
@@ -28,7 +27,6 @@ namespace _Scripts.Managers.Ui
             DisplayInput.onEndEdit.AddListener(OnDisplayNameChange);
         }
 
-
         public void LoadData()
         {
             if(UserData != null) return;
@@ -41,6 +39,7 @@ namespace _Scripts.Managers.Ui
             {
                 if (!success)
                 {
+                    ErrorInRetrieving();
                     Debug.LogError("[!] Failed to fetch UseData");
                     return;
                 }
@@ -64,7 +63,10 @@ namespace _Scripts.Managers.Ui
         {
             if (UserData != null && UserData.DisplayName == newName) return;
 
-            _services.UserService.ChangeDisplayName(newName, null);
+            _services.UserService.ChangeDisplayName(newName, (success) =>
+            {
+                if (success) Username.text = newName;
+            });
         }
 
         void ErrorInRetrieving()

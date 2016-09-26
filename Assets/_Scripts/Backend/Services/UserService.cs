@@ -32,11 +32,15 @@ namespace _Scripts.Backend.Services
 
         public void Authenticate(Action<bool> callback)
         {
-            string displayName = PlayerPrefs.GetString(SaveKeys.DisplayName);
+            string displayName;
 
-            if (string.IsNullOrEmpty(displayName))
+            if (PlayerPrefs.HasKey(SaveKeys.DisplayName))
             {
-                displayName = "User" + new System.Random().NextDouble() * 1000000;
+                displayName = "User" + Convert.ToInt32(new System.Random().NextDouble()*100000);
+            }
+            else
+            {
+                displayName = PlayerPrefs.GetString(SaveKeys.DisplayName);
             }
 
 #if DEBUG

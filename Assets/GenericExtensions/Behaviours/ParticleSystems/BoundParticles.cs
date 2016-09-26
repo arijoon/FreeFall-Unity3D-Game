@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 using Zenject;
-using _Scripts.Definitions;
 
 namespace GenericExtensions.Behaviours.ParticleSystems
 {

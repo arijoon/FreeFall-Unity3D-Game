@@ -1,7 +1,4 @@
-﻿using JetBrains.Annotations;
-using Zenject;
-
-namespace GenericExtensions.Interfaces
+﻿namespace GenericExtensions.Interfaces
 {
     public interface IWeighted
     {

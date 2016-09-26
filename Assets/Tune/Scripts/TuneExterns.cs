@@ -1,11 +1,3 @@
-using UnityEngine;
-using System;
-using System.IO;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Linq;
-
 namespace TuneSDK
 {
     // Externs used by the iOS component.

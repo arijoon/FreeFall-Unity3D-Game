@@ -2,7 +2,6 @@
 using GenericExtensions.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
-using _Scripts.Definitions.ConstantClasses;
 
 namespace GenericExtensions.Ui
 {
