@@ -47,7 +47,7 @@ PlayerSettings:
   Prepare IOS For Recording: 0
   submitAnalytics: 1
   usePlayerLog: 1
-  bakeCollisionMeshes: 0
+  bakeCollisionMeshes: 1
   forceSingleInstance: 0
   resizableWindow: 0
   useMacAppStoreValidation: 0
@@ -94,7 +94,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleIdentifier: net.yaraee.freefall
+  bundleIdentifier: net.yaraee.freefall.debug
   bundleVersion: 1.0
   preloadedAssets: []
   metroEnableIndependentInputSource: 0

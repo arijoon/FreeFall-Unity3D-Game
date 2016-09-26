@@ -32,7 +32,7 @@ namespace _Scripts.Services
             LeaderBoard = leaderBoard;
             UserService = userService;
 
-            Invoke("DelayedStart", .5f);
+            Invoke("DelayedStart", .1f);
         }
 
         void DelayedStart()

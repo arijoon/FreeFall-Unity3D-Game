@@ -8,6 +8,17 @@ namespace _Scripts.Managers
     {
         public GameObject MainMenuContainer;
 
+        [Space(10)]
+        public bool InitialiseStates;
+        public GameObject MainMenu;
+        public GameObject[] OtherMenus;
+
+        void Start()
+        {
+            if(InitialiseStates)
+                SetInitialStates();
+        }
+
         public void LoadGame()
         {
             SceneManager.LoadScene(SceneIndexes.Main);
@@ -28,5 +39,14 @@ namespace _Scripts.Managers
             MainMenuContainer.SetActive(!MainMenuContainer.activeSelf);
         }
 
+        private void SetInitialStates()
+        {
+            MainMenu.SetActive(true);
+
+            foreach (var menu in OtherMenus)
+            {
+                menu.SetActive(false);
+            }
+        }
     }
 }

@@ -61,8 +61,6 @@ namespace _Scripts.Managers
             _scoreSignal.Event += OnAddScore;
 
             Pause = false;
-            //Invoke("Debugging", 1f);
-            PlayerPrefs.DeleteAll(); // TODO debug
         }
 
         private void Debugging()
@@ -136,7 +134,6 @@ namespace _Scripts.Managers
 
         public void Reset()
         {
-            //PlayerPrefs.DeleteAll();
             OnReset(this, EventArgs.Empty);
         }
 

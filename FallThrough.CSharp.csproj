@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>5.4.1f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -126,6 +128,7 @@
     <Compile Include="Assets\GenericExtensions\Behaviours\OccasionalNighter.cs" />
     <Compile Include="Assets\GenericExtensions\Behaviours\ParticleSystems\BoundParticles.cs" />
     <Compile Include="Assets\GenericExtensions\Behaviours\ParticleSystems\OccasionalFogger.cs" />
+    <Compile Include="Assets\GenericExtensions\Effects\LoadingEffect.cs" />
     <Compile Include="Assets\GenericExtensions\Events\EventExtensions.cs" />
     <Compile Include="Assets\GenericExtensions\Factories\Interfaces\IObjectFactory.cs" />
     <Compile Include="Assets\GenericExtensions\Factories\ObjectFactory.cs" />
@@ -136,6 +139,7 @@
     <Compile Include="Assets\GenericExtensions\Interfaces\IObjectPool.cs" />
     <Compile Include="Assets\GenericExtensions\Interfaces\ISlider.cs" />
     <Compile Include="Assets\GenericExtensions\Interfaces\ITaskManager.cs" />
+    <Compile Include="Assets\GenericExtensions\Interfaces\IToggle.cs" />
     <Compile Include="Assets\GenericExtensions\Interfaces\IWeighted.cs" />
     <Compile Include="Assets\GenericExtensions\Managers\TaskManager.cs" />
     <Compile Include="Assets\GenericExtensions\ParticleSystemExtensions.cs" />
@@ -384,6 +388,7 @@
     <Compile Include="Assets\_Scripts\Managers\MainMenuManager.cs" />
     <Compile Include="Assets\_Scripts\Managers\PlayerManager.cs" />
     <Compile Include="Assets\_Scripts\Managers\UiManager.cs" />
+    <Compile Include="Assets\_Scripts\Managers\Ui\StatsPanelManager.cs" />
     <Compile Include="Assets\_Scripts\Services\AssetsReader.cs" />
     <Compile Include="Assets\_Scripts\Services\Interfaces\IInputAxis.cs" />
     <Compile Include="Assets\_Scripts\Services\Interfaces\IPersistentServices.cs" />

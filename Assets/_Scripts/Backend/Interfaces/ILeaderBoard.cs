@@ -7,8 +7,11 @@ namespace _Scripts.Backend.Interfaces
 {
     public interface ILeaderBoard
     {
-        void GetData(Action<IList<LeaderBoardUser>> callback);
+        void GetUserData(Action<LeaderBoardUser, bool> callback);
+        void GetData(Action<IList<LeaderBoardUser>, bool> callback);
 
         void RegisterScore(int score);
+
+        void SyncLocal(LeaderBoardUser user);
     }
 }
