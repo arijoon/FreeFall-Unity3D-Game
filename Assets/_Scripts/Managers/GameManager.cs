@@ -11,6 +11,7 @@ using _Scripts.Definitions.ConstantClasses;
 using _Scripts.Definitions.Interfaces;
 using _Scripts.Definitions.Signals;
 using _Scripts.Factories;
+using _Scripts.Services;
 using _Scripts.Services.Interfaces;
 
 namespace _Scripts.Managers
@@ -166,18 +167,20 @@ namespace _Scripts.Managers
 
         private void SetHighestScore()
         {
-            if (!PlayerPrefs.HasKey(PlayerPrefKeys.MaxBonus))
+            PersistentService.Instance.LeaderBoard.RegisterScore(Score);
+
+            if (!PlayerPrefs.HasKey(SaveKeys.MaxBonus))
             {
-                PlayerPrefs.SetInt(PlayerPrefKeys.MaxBonus, Score);
+                PlayerPrefs.SetInt(SaveKeys.MaxBonus, Score);
                 OnNewHighScore.SafeCall(this);
             }
             else
             {
-                int currentScore = PlayerPrefs.GetInt(PlayerPrefKeys.MaxBonus);
+                int currentScore = PlayerPrefs.GetInt(SaveKeys.MaxBonus);
 
                 if (currentScore < Score)
                 {
-                    PlayerPrefs.SetInt(PlayerPrefKeys.MaxBonus, Score);
+                    PlayerPrefs.SetInt(SaveKeys.MaxBonus, Score);
                     OnNewHighScore.SafeCall(this);
                 }
             }

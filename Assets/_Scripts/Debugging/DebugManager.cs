@@ -34,7 +34,7 @@ namespace _Scripts.Debugging
         private void SetValues()
         {
             _texts[Names.HighestScore].text = string.Format("Highest Score: {0}",
-                PlayerPrefs.GetInt(PlayerPrefKeys.MaxBonus));
+                PlayerPrefs.GetInt(SaveKeys.MaxBonus));
         }
 
         public static class Names

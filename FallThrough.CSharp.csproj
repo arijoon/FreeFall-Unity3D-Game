@@ -348,6 +348,7 @@
     <Compile Include="Assets\_Scripts\Advertising\InstallTracking\InstallTracker.cs" />
     <Compile Include="Assets\_Scripts\Backend\Interfaces\ILeaderBoard.cs" />
     <Compile Include="Assets\_Scripts\Backend\Interfaces\IUserService.cs" />
+    <Compile Include="Assets\_Scripts\Backend\Models\LeaderBoardUser.cs" />
     <Compile Include="Assets\_Scripts\Backend\Models\User.cs" />
     <Compile Include="Assets\_Scripts\Backend\Services\LeaderBoard.cs" />
     <Compile Include="Assets\_Scripts\Backend\Services\UserService.cs" />
@@ -360,9 +361,10 @@
     <Compile Include="Assets\_Scripts\Definitions\ConstantClasses\Constants.cs" />
     <Compile Include="Assets\_Scripts\Definitions\ConstantClasses\Labels.cs" />
     <Compile Include="Assets\_Scripts\Definitions\ConstantClasses\Messages.cs" />
-    <Compile Include="Assets\_Scripts\Definitions\ConstantClasses\PlayerPrefKeys.cs" />
+    <Compile Include="Assets\_Scripts\Definitions\ConstantClasses\SaveKeys.cs" />
     <Compile Include="Assets\_Scripts\Definitions\ConstantClasses\Scenes.cs" />
     <Compile Include="Assets\_Scripts\Definitions\ConstantClasses\Tags.cs" />
+    <Compile Include="Assets\_Scripts\Definitions\ConstantClasses\ThirdParty\GameSparks.cs" />
     <Compile Include="Assets\_Scripts\Definitions\ConstantClasses\Triggers.cs" />
     <Compile Include="Assets\_Scripts\Definitions\CustomEventArgs\DragEventArgs.cs" />
     <Compile Include="Assets\_Scripts\Definitions\Enums\ObstacleTypes.cs" />

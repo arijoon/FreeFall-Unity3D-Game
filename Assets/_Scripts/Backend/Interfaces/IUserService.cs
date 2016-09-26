@@ -1,4 +1,5 @@
 ﻿using System;
+using GameSparks.Api.Responses;
 using _Scripts.Backend.Models;
 
 namespace _Scripts.Backend.Interfaces
@@ -7,8 +8,12 @@ namespace _Scripts.Backend.Interfaces
     {
         User UserInfo { get; }
 
-        void Register(string username, Action<bool> callback);
+        bool HasUserInfo { get; }
+
+        void Register(string username, string displayName, string password, Action<bool> callback);
 
         void Authenticate(Action<bool> callback);
+
+        void ChangeDisplayName(string newDisplayName, Action<bool> callback);
     }
 }

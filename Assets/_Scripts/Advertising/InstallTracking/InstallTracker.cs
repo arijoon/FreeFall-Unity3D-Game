@@ -22,10 +22,10 @@ namespace _Scripts.Advertising.InstallTracking
             // If you have existing users from before TUNE SDK implementation,
             // identify those users using this code snippet.
             
-            if (PlayerPrefs.HasKey(PlayerPrefKeys.MaxBonus))
+            if (PlayerPrefs.HasKey(SaveKeys.MaxBonus))
                 Tune.SetExistingUser(true);
             else
-                PlayerPrefs.SetInt(PlayerPrefKeys.ExistingUser, 1);
+                PlayerPrefs.SetInt(SaveKeys.ExistingUser, 1);
 
             // Measure initial app open
             Tune.MeasureSession();

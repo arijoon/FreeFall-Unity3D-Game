@@ -31,6 +31,13 @@ namespace _Scripts.Services
         {
             LeaderBoard = leaderBoard;
             UserService = userService;
+
+            Invoke("DelayedStart", .5f);
+        }
+
+        void DelayedStart()
+        {
+            UserService.Authenticate(null);
         }
 
     }
