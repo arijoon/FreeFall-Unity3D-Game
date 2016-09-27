@@ -2,7 +2,7 @@
 {
     public class LeaderBoardUser
     {
-        public int Rank { get; set; }
+        public int? Rank { get; set; }
 
         public string DisplayName { get; set; }
 

@@ -28,7 +28,7 @@ namespace _Scripts.Backend.Services
                     GSData leaderboard = res.JSONData[GameSparksCodes.ScoreLeaderBoard] as GSData;
 
                     var result = new LeaderBoardUser();
-                    result.Rank = (int)leaderboard.GetInt("rank");
+                    result.Rank = leaderboard.GetInt("rank");
                     result.Score = leaderboard.GetInt(GameSparksCodes.Events.ScoreAttr).ToString();
                     result.DisplayName = leaderboard.GetString("userName");
 
@@ -55,7 +55,7 @@ namespace _Scripts.Backend.Services
                     {
                         list.Add(new LeaderBoardUser()
                         {
-                            Rank =  (int) data.Rank,
+                            Rank = (int?) data.Rank,
                             DisplayName = data.UserName,
                             Score = data.JSONData[GameSparksCodes.Events.ScoreAttr].ToString()
                         });
@@ -77,12 +77,16 @@ namespace _Scripts.Backend.Services
         {
             PlayerPrefs.SetString(SaveKeys.DisplayName, user.DisplayName);
 
-            int score = Convert.ToInt32(user.Score);
-            if (PlayerPrefs.HasKey(SaveKeys.MaxBonus) &&
-                PlayerPrefs.GetInt(SaveKeys.MaxBonus) < score)
+            try
             {
-                PlayerPrefs.SetInt(SaveKeys.MaxBonus, score);
-            } 
+                int score = Convert.ToInt32(user.Score);
+                if (PlayerPrefs.HasKey(SaveKeys.MaxBonus) &&
+                    PlayerPrefs.GetInt(SaveKeys.MaxBonus) < score)
+                {
+                    PlayerPrefs.SetInt(SaveKeys.MaxBonus, score);
+                }
+            }
+            catch (FormatException) { }
         }
     }
 }

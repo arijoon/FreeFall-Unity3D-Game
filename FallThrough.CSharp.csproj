@@ -403,6 +403,7 @@
     <Compile Include="Assets\_Scripts\Services\PersistentService.cs" />
     <Compile Include="Assets\_Scripts\_AppStart\BaseInstaller.cs" />
     <Compile Include="Assets\_Scripts\_AppStart\CommonInstaller.cs" />
+    <Compile Include="Assets\_Scripts\_AppStart\InitialPrefSetter.cs" />
     <Compile Include="Assets\_Scripts\_AppStart\MainInstaller.cs" />
     <Compile Include="Assets\_Scripts\_AppStart\PrefabInstaller.cs" />
     <Compile Include="Assets\_Scripts\_AppStart\ServiceInstaller.cs" />

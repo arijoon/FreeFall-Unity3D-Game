@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 using _Scripts.Backend.Models;
+using _Scripts.Definitions.ConstantClasses;
 using _Scripts.Services;
 using _Scripts.Services.Interfaces;
 
@@ -49,10 +50,8 @@ namespace _Scripts.Managers.Ui
 
                 UserData = data;
 
-                DisplayInput.text = data.DisplayName;
                 RankText.text = data.Rank.ToString();
                 ScoreText.text = data.Score;
-                Username.text = data.DisplayName;
 
                 _services.LeaderBoard.SyncLocal(data);
 
@@ -60,6 +59,9 @@ namespace _Scripts.Managers.Ui
 
                 ContentPanel.SetActive(true);
             });
+
+            DisplayInput.text = PlayerPrefs.GetString(SaveKeys.DisplayName);
+            Username.text = DisplayInput.text;
         }
 
         void OnDisplayNameChange(string newName)

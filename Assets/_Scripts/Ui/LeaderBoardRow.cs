@@ -12,7 +12,7 @@ namespace _Scripts.Ui
 
         public void SetData(LeaderBoardUser user)
         {
-            Rank.text = user.Rank.ToString();
+            Rank.text = user.Rank.HasValue ? user.Rank.ToString() : "N/A";
             Username.text = user.DisplayName;
             Score.text = user.Score;
         }

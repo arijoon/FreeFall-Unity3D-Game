@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using GenericExtensions;
 using GenericExtensions.Factories;
 using GenericExtensions.Interfaces;
@@ -75,7 +76,9 @@ namespace _Scripts.Ui
                 GameObject newRow = _prefabFactory.Create(RowPrefab);
                 newRow.transform.SetParent(RowsContainer.transform, false);
 
-                Color newColor = Color.Lerp(FirstColor, LastColor, user.Rank * countR);
+                int rank = user.Rank ?? Convert.ToInt32(countR);
+
+                Color newColor = Color.Lerp(FirstColor, LastColor, rank * countR);
 
                 LeaderBoardRow rowComponent =  newRow.FindComponent<LeaderBoardRow>();
                 rowComponent.SetData(user);

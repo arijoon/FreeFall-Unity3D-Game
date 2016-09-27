@@ -63,3 +63,6 @@ desktop.ini
 ehthumbs.db
 Thumbs.db
 Assets/Textures/Textures (Unity UI)/
+
+# Mobile assets image files
+MobileAssets/

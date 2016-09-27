@@ -16,9 +16,6 @@ namespace _Scripts.Backend.Services
         {
            displayName = PlayerPrefs.GetString(SaveKeys.DisplayName);
 
-#if DEBUG
-            displayName = "TEST_" + displayName;
-#endif
             new GameSparks.Api.Requests.RegistrationRequest()
                 .SetDisplayName(displayName)
                 .SetUserName(username)
@@ -32,25 +29,17 @@ namespace _Scripts.Backend.Services
 
         public void Authenticate(Action<bool> callback)
         {
-            string displayName;
-
-            if (PlayerPrefs.HasKey(SaveKeys.DisplayName))
-            {
-                displayName = "User" + Convert.ToInt32(new System.Random().NextDouble()*100000);
-            }
-            else
-            {
-                displayName = PlayerPrefs.GetString(SaveKeys.DisplayName);
-            }
-
-#if DEBUG
-            displayName = "TEST_" + displayName;
-#endif
+            string displayName = PlayerPrefs.GetString(SaveKeys.DisplayName);
 
             new GameSparks.Api.Requests.DeviceAuthenticationRequest()
                 .SetDisplayName(displayName)
                 .Send((res) =>
                     {
+                        if (!res.HasErrors && displayName != res.DisplayName)
+                        {
+                            PlayerPrefs.SetString(SaveKeys.DisplayName, res.DisplayName);
+                        }
+
                         if (callback != null)
                             callback(!res.HasErrors);
                     });
@@ -62,6 +51,11 @@ namespace _Scripts.Backend.Services
                 .SetDisplayName(newDisplayName)
                 .Send((res) =>
                 {
+                    if (!res.HasErrors)
+                    {
+                        PlayerPrefs.SetString(SaveKeys.DisplayName, newDisplayName);
+                    }
+
                     if (callback != null)
                         callback(!res.HasErrors);
                 });
