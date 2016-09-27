@@ -2,6 +2,7 @@
 using GenericExtensions;
 using GenericExtensions.Behaviours;
 using GenericExtensions.Interfaces;
+using GenericExtensions.Utils;
 using UnityEngine;
 using Zenject;
 using _Scripts.Definitions;
@@ -20,6 +21,7 @@ namespace _Scripts.Managers
         public float MoveSpeed = 10f;
         public float ImpactDistance = 5f;
         public float MinImpactDistance = 2f;
+        public uint CheckImpactEvery = 10;
 
         public Vector3 Tilt;
 
@@ -39,6 +41,7 @@ namespace _Scripts.Managers
         private bool _shouldDrag;
 
         private WaitForSeconds _impactWait;
+        private UpdatePerXFrame _perXFrameUpdate;
 
         private bool isImpacting;
 
@@ -61,6 +64,7 @@ namespace _Scripts.Managers
             _gm.OnLevelFinished += OnLevelFinished;
 
             _impactWait = new WaitForSeconds(1f);
+            _perXFrameUpdate = new UpdatePerXFrame(CheckImpactEvery);
         }
 
         #region eventHandlers
@@ -116,8 +120,11 @@ namespace _Scripts.Managers
         {
             if (_gm.Pause) return;
 
-            KeepInBoundary();
-            CheckForImpact();
+            if (_perXFrameUpdate.ShouldUpdate)
+            {
+                KeepInBoundary();
+                CheckForImpact();
+            }
 
             if (transform.position.y < 0)
                 transform.position = transform.position.WithY(0);
@@ -148,7 +155,6 @@ namespace _Scripts.Managers
 
             foreach (var direction in _impactDirections)
             {
-                Debug.DrawRay(transform.position, direction, Color.red, 1f);
                 var ray = new Ray(transform.position, direction);
 
                 if (Physics.Raycast(ray,out hit, ImpactDistance, ObstacleLayerMask))

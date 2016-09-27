@@ -39,7 +39,6 @@ namespace _Scripts.Managers
         [Inject] AddScoreSignal _scoreSignal;
         [Inject] AddScoreSignal.Trigger _scoreTrigger;
 
-
         public event EventHandler OnUpdateUi;
         public event EventHandler OnLevelFinished;
         public event EventHandler OnNewHighScore;
