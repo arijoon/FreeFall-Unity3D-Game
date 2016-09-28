@@ -67,7 +67,7 @@ namespace _Scripts.Managers
 
         #endregion
 
-        void Update()
+        void LateUpdate()
         {
             lock (_lock)
             {

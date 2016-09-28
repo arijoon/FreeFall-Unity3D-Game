@@ -96,6 +96,8 @@ namespace _Scripts.Managers
             {
                 yield return wait;
 
+                if(Pause) yield break;
+
                 if (UnityEngine.Random.Range(0, 1) < PickupChance)
                 {
                     float randomXSpawn = UnityEngine.Random.Range(_settings.Boundary.MinX, _settings.Boundary.MaxX);
@@ -107,19 +109,10 @@ namespace _Scripts.Managers
         IEnumerator GeneratePlatform()
         {
             var wait = new WaitForSeconds(Mathf.Max(GenerationWait));
-            //var waitForPlatform = new WaitUntil(() =>
-            //    {
-            //        if (_lastPlatform == null)
-            //            return true;
-
-            //        return _lastPlatform.transform.position.y > _settings.Boundary.MinY - 20;
-            //    });
 
             while (true)
             {
                 yield return wait;
-
-                //yield return waitForPlatform;
 
                 float randomXSpawn = UnityEngine.Random.Range(_settings.Boundary.MinX, _settings.Boundary.MaxX);
 
