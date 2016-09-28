@@ -4,9 +4,9 @@ using _Scripts.Definitions.ConstantClasses;
 
 namespace _Scripts.Advertising.InstallTracking
 {
-    public partial class InstallTracker : MonoBehaviour
+    public class InstallTracker : MonoBehaviour
     {
-#if UNITY_ANDROID || UNITY_IOS || true
+#if UNITY_ANDROID || UNITY_IOS
         void Awake()
         {
             Tune.Init(Ads.AdvertisingId, Ads.ConversionKey);
@@ -21,7 +21,7 @@ namespace _Scripts.Advertising.InstallTracking
 
             // If you have existing users from before TUNE SDK implementation,
             // identify those users using this code snippet.
-            
+
             if (PlayerPrefs.HasKey(SaveKeys.ExistingUser))
                 Tune.SetExistingUser(true);
             else

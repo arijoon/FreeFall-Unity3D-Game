@@ -80,10 +80,14 @@ namespace _Scripts.Backend.Services
             try
             {
                 int score = Convert.ToInt32(user.Score);
-                if (PlayerPrefs.HasKey(SaveKeys.MaxBonus) &&
+                if (!PlayerPrefs.HasKey(SaveKeys.MaxBonus) ||
                     PlayerPrefs.GetInt(SaveKeys.MaxBonus) < score)
                 {
                     PlayerPrefs.SetInt(SaveKeys.MaxBonus, score);
+                }
+                else
+                {
+                    RegisterScore(PlayerPrefs.GetInt(SaveKeys.MaxBonus));
                 }
             }
             catch (FormatException) { }

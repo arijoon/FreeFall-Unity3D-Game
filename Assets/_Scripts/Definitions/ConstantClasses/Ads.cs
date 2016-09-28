@@ -2,15 +2,9 @@
 {
     public static class Ads
     {
-        public const string ConversionKey = "";
-        public const string AdvertisingId = "";
+        public const string ConversionKey = "96b20c8bd009c412b9891383af98758a";
+        public const string AdvertisingId = "192874";
 
-#if DEBUG
-        public const string PackageName = "net.yaraee.freefall.debug";
-#elif UNITY_ANDROID
         public const string PackageName = "net.yaraee.freefall";
-#elif UNITY_IOS
-        public const string PackageName = "net.yaraee.freefall";
-#endif
     }
 }
