@@ -50,7 +50,7 @@ namespace _Scripts.Managers.Ui
 
                 UserData = data;
 
-                RankText.text = data.Rank.ToString();
+                RankText.text = data.Rank.HasValue ? data.Rank.Value.ToString() : "N/A";
                 ScoreText.text = data.Score;
 
                 _services.LeaderBoard.SyncLocal(data);

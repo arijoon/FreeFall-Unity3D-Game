@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Zenject;
 using _Scripts.Backend.Interfaces;
+using _Scripts.Definitions.ConstantClasses.ThirdParty;
 using _Scripts.Services.Interfaces;
 
 namespace _Scripts.Services
@@ -31,12 +32,20 @@ namespace _Scripts.Services
             LeaderBoard = leaderBoard;
             UserService = userService;
 
+            ConfigureBackend();
+
             Invoke("DelayedStart", .1f);
         }
 
         void DelayedStart()
         {
             UserService.Authenticate(null);
+        }
+
+        private void ConfigureBackend()
+        {
+            GameSparksSettings.ApiKey = GameSparksCodes.Credentials.Key;
+            GameSparksSettings.ApiSecret = GameSparksCodes.Credentials.Secret;
         }
 
     }

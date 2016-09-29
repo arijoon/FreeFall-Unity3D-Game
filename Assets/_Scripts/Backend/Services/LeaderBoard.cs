@@ -29,7 +29,7 @@ namespace _Scripts.Backend.Services
 
                     var result = new LeaderBoardUser();
                     result.Rank = leaderboard.GetInt("rank");
-                    result.Score = leaderboard.GetInt(GameSparksCodes.Events.ScoreAttr).ToString();
+                    result.Score = leaderboard.GetInt(GameSparksCodes.Events.Attributes.Score).ToString();
                     result.DisplayName = leaderboard.GetString("userName");
 
                     callback(result, true);
@@ -57,7 +57,7 @@ namespace _Scripts.Backend.Services
                         {
                             Rank = (int?) data.Rank,
                             DisplayName = data.UserName,
-                            Score = data.JSONData[GameSparksCodes.Events.ScoreAttr].ToString()
+                            Score = data.JSONData[GameSparksCodes.Events.Attributes.Score].ToString()
                         });
                     }
 
@@ -69,7 +69,15 @@ namespace _Scripts.Backend.Services
         {
             new GameSparks.Api.Requests.LogEventRequest()
                 .SetEventKey(GameSparksCodes.Events.SubmitScore)
-                .SetEventAttribute(GameSparksCodes.Events.ScoreAttr, score)
+                .SetEventAttribute(GameSparksCodes.Events.Attributes.Score, score)
+                .Send(null);
+        }
+
+        public void RegisterTime(int time)
+        {
+            new GameSparks.Api.Requests.LogEventRequest()
+                .SetEventKey(GameSparksCodes.Events.SubmitTime)
+                .SetEventAttribute(GameSparksCodes.Events.Attributes.Time, time)
                 .Send(null);
         }
 

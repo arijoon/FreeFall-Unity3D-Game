@@ -76,9 +76,11 @@ namespace _Scripts.Ui
                 GameObject newRow = _prefabFactory.Create(RowPrefab);
                 newRow.transform.SetParent(RowsContainer.transform, false);
 
-                int rank = user.Rank ?? Convert.ToInt32(countR);
+                int rank = user.Rank ?? users.Count;
 
-                Color newColor = Color.Lerp(FirstColor, LastColor, rank * countR);
+                Color newColor = users.Count == 1 
+                    ? FirstColor 
+                    : Color.Lerp(FirstColor, LastColor, rank*countR);
 
                 LeaderBoardRow rowComponent =  newRow.FindComponent<LeaderBoardRow>();
                 rowComponent.SetData(user);
