@@ -390,6 +390,7 @@
     <Compile Include="Assets\_Scripts\Managers\GameManager_Setup.cs" />
     <Compile Include="Assets\_Scripts\Managers\HealthManager.cs" />
     <Compile Include="Assets\_Scripts\Managers\MainMenuManager.cs" />
+    <Compile Include="Assets\_Scripts\InjectablePrefabs\MedalsSprites.cs" />
     <Compile Include="Assets\_Scripts\Managers\PlayerManager.cs" />
     <Compile Include="Assets\_Scripts\Ui\IncreaseHeight.cs" />
     <Compile Include="Assets\_Scripts\Ui\LeaderBoardManager.cs" />
