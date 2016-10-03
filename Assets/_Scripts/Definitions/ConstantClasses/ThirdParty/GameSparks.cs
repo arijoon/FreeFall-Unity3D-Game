@@ -31,5 +31,17 @@
             public const string Secret = "ep9qMnBmZzYCSZRVUlmBJAA8iMUEPNhC";
 #endif
         }
+
+        public class Config
+        {
+#if DEBUG
+            public const bool PreviewBuild = true;
+            public const bool DebugBuild = true;
+#else
+            public const bool PreviewBuild = false;
+            public const bool DebugBuild = false;
+#endif
+        }
     }
+
 }

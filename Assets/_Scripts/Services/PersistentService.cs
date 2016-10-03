@@ -46,6 +46,9 @@ namespace _Scripts.Services
         {
             GameSparksSettings.ApiKey = GameSparksCodes.Credentials.Key;
             GameSparksSettings.ApiSecret = GameSparksCodes.Credentials.Secret;
+
+            GameSparksSettings.PreviewBuild = GameSparksCodes.Config.PreviewBuild;
+            GameSparksSettings.DebugBuild = GameSparksCodes.Config.DebugBuild;
         }
 
     }
