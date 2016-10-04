@@ -2,7 +2,7 @@
 
 namespace _Scripts.Definitions.Signals
 {
-    public class AddScoreSignal : Signal<int>
+    public class AchievementSignal : Signal<string>
     {
         public class Trigger : TriggerBase { }
     }

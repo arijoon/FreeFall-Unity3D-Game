@@ -354,6 +354,9 @@
     <Compile Include="Assets\Zenject\Source\Validation\ValidationMarker.cs" />
     <Compile Include="Assets\Zenject\Source\Validation\ValidationSceneDisabler.cs" />
     <Compile Include="Assets\_Scripts\Advertising\InstallTracking\InstallTracker.cs" />
+    <Compile Include="Assets\_Scripts\Definitions\Wrappers\GSAchievement.cs" />
+    <Compile Include="Assets\_Scripts\Definitions\Enums\Achievements.cs" />
+    <Compile Include="Assets\_Scripts\Definitions\Interfaces\IAchievement.cs" />
     <Compile Include="Assets\_Scripts\Backend\Interfaces\ILeaderBoard.cs" />
     <Compile Include="Assets\_Scripts\Backend\Interfaces\IUserService.cs" />
     <Compile Include="Assets\_Scripts\Backend\Models\LeaderBoardUser.cs" />
@@ -372,14 +375,16 @@
     <Compile Include="Assets\_Scripts\Definitions\ConstantClasses\SaveKeys.cs" />
     <Compile Include="Assets\_Scripts\Definitions\ConstantClasses\Scenes.cs" />
     <Compile Include="Assets\_Scripts\Definitions\ConstantClasses\Tags.cs" />
-    <Compile Include="Assets\_Scripts\Definitions\ConstantClasses\ThirdParty\GameSparks.cs" />
+    <Compile Include="Assets\_Scripts\Definitions\ConstantClasses\ThirdParty\GameSparksCodes.cs" />
     <Compile Include="Assets\_Scripts\Definitions\ConstantClasses\Triggers.cs" />
     <Compile Include="Assets\_Scripts\Definitions\CustomEventArgs\DragEventArgs.cs" />
     <Compile Include="Assets\_Scripts\Definitions\Enums\ObstacleTypes.cs" />
     <Compile Include="Assets\_Scripts\Definitions\Interfaces\IGameManager.cs" />
     <Compile Include="Assets\_Scripts\Definitions\Settings.cs" />
+    <Compile Include="Assets\_Scripts\Definitions\Signals\AchievementSignal.cs" />
     <Compile Include="Assets\_Scripts\Definitions\Signals\AddScoreSignal.cs" />
     <Compile Include="Assets\_Scripts\Definitions\Signals\DamageTakenSignal.cs" />
+    <Compile Include="Assets\_Scripts\Behaviours\DataContainers\AchievementsComponent.cs" />
     <Compile Include="Assets\_Scripts\Definitions\Wrappers\PickupPrefab.cs" />
     <Compile Include="Assets\_Scripts\Definitions\Wrappers\PlatformPrefab.cs" />
     <Compile Include="Assets\_Scripts\Factories\PickupFactory.cs" />
