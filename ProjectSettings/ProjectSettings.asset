@@ -95,13 +95,13 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleIdentifier: net.yaraee.freefall
-  bundleVersion: 1.6.1
+  bundleVersion: 1.6.2
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   xboxOneDisableKinectGpuReservation: 0
   singlePassStereoRendering: 0
   protectGraphicsMemory: 0
-  AndroidBundleVersionCode: 8
+  AndroidBundleVersionCode: 9
   AndroidMinSdkVersion: 9
   AndroidPreferredInstallLocation: 1
   aotOptions: 

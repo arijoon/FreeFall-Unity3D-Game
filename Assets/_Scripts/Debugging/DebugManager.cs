@@ -4,11 +4,11 @@ using UnityEngine.UI;
 using Zenject;
 using _Scripts.Definitions.ConstantClasses;
 
-#if UNITY_EDITOR
 namespace _Scripts.Debugging
 {
     public partial class DebugManager : MonoBehaviour
     {
+#if UNITY_EDITOR
         private Dictionary<string, Text> _texts;
 
         [Inject]
@@ -39,6 +39,6 @@ namespace _Scripts.Debugging
         {
             public const string HighestScore = "HighestScore";
         }
+#endif
     }
 }
-#endif

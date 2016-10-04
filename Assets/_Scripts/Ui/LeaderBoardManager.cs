@@ -64,7 +64,7 @@ namespace _Scripts.Ui
 
         private void DrawLeaderBoardsTable(IList<LeaderBoardUser> users)
         {
-            int scrollableHeight = RowHeight*users.Count;
+            int scrollableHeight = RowHeight*users.Count + HeaderOffset;
 
             _scrollableTransform.sizeDelta = new Vector2(0, scrollableHeight);
             _rowContainerTransform.sizeDelta = new Vector2(0, scrollableHeight - HeaderOffset);
