@@ -1,3 +1,6 @@
+using System;
+using System.Runtime.InteropServices;
+
 namespace TuneSDK
 {
     // Externs used by the iOS component.
