@@ -9,5 +9,5 @@ Credits are given in the respected download page for the app. Not all assets are
 
 # Download App
 
-![Google Play](https://play.google.com/store/apps/details?id=net.yaraee.freefall)
-![!App Store](https://itunes.apple.com/us/app/free-fall-sky-free-falling/id1163543558?ls=1&mt=8)
+[Google Play](https://play.google.com/store/apps/details?id=net.yaraee.freefall)
+[!App Store](https://itunes.apple.com/us/app/free-fall-sky-free-falling/id1163543558?ls=1&mt=8)
